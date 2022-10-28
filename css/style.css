@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root{
+    --dark: #232c33;
+    --dark-2: #1a1f27;
+    --text-color: #a5a9ac;
+    --secondary-color: #c48af9;
+    --blue-berry: #2d3b41;
+    --sea: #1da5ff;
+}
+
+body{
+    background: var(--dark);
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+@media (max-height: 600px) {
+    .container{
+        padding: 40px 0;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.container  .form-container{
+    height: 500px;
+    min-height: 450px;
+    width: 350px;
+    min-width: 300px;
+    background-image: linear-gradient(var(--dark-2), var(--blue-berry));
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.container  .form-container::before{
+    content:"";
+    background: var(--dark);
+    opacity: 20%;
+    border-radius: 10px;
+    position: absolute;
+    height: 110%;
+    width: 110%;
+    z-index: -1;
+   transform: translate(-5%, -5%);
+}
+
+
+.container  .form-container .user-form,
+.container  .form-container .password-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.container  .form-container .password-form i,
+.container  .form-container .user-form i{
+    margin-right: 20px;
+    display: flex;
+    font-size: 100%;
+}
+
+.container  .form-container .icon-container{
+    font-size: 20px;
+}
+
+.container  .form-container .input-form{
+    height: 15%;
+    width: 100%;
+    margin-bottom: 7px;
+}
+
+.container .form-container .input-form .user-form input,
+.container .form-container .input-form .password-form input{
+    border: none;
+    border-bottom: 1px solid #a5a9ac;
+    background-color: transparent;
+    color: var(--text-color);
+    outline: none;
+}
+
+.container .form-container .login-submit{
+    margin-left: 109px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.container  .form-container .logo-container{
+    display: flex;
+    height: 40%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.container .form-container .logo-container i.icon{
+    display: flex;
+    font-size: 200px;
+}
+
+
+
+.gradient{
+    background: -webkit-linear-gradient(var(--secondary-color), var(--sea));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.container .form-container .login-footer{
+    position: absolute;
+    bottom: 0;
+}
+
+.form-header{
+   
+}
+
+.color-based{
+    display: flex;
+    height: 100px;
+    width: 350px;
+    background-color: red;
+    background-image: linear-gradient(to right, var(--secondary-color), var(--sea));
+}
+
+/* input style for auto fill not white */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: var(--text-color) !important;
+}
