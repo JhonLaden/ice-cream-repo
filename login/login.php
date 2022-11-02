@@ -10,8 +10,41 @@
     <title>ice cream</title>
 </head>
 <body>
+
+    <?php
+        $accountList = array(
+            array(
+                'username' => 'jhon',
+                'password' => 'jhon',
+                'rank' => 'admin'
+            ),
+            array(
+                'username' => 'isaac',
+                'password' => 'isaac',
+                'rank' => 'staff'
+            )
+        );
+        $error = '';
+        if(isset($_POST['login-submit'])){
+                if(isset($_POST['username']) && isset($_POST['password'])){
+                    $inputtedUsername = $_POST['username'];
+                    $inputtedPassword = $_POST['password'];
+                    $inputtedUsername = htmlentities($inputtedUsername);
+                    $inputtedPassword = htmlentities($inputtedPassword);
+                    foreach($accountList as $key => $value){
+                        if($value['username'] == $inputtedUsername && $value['password'] == $inputtedPassword){
+                            $_SESSION['logged-in'] = $value;
+                            header('location: ../admin/dashboard.php');
+                        }else{
+                            $error = 'wrong username or password';
+                        }
+                    }
+                }
+        }
+
+    ?>
     <div class="container">
-        <form class="form-container">
+        <form class="form-container" action = "login.php" method = "POST">
             <div class="form-header">
             <span class = "logo-container ">
                 <i class='bx bxl-drupal icon gradient'></i>
@@ -29,6 +62,9 @@
             </div>
 
             <input type="submit" name = "login-submit" class = "login-submit gradient" value = "LOGIN" >
+            <div class="error-container">
+                <p class = "error">  <?php echo $error ?> </p>
+            </div>
             </div>
            
             
