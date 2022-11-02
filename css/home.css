@@ -155,12 +155,11 @@ a{
     padding: 10px;
     display: flex;
     flex-direction: column;
-}
-.menu .menu-body .menu-items .card,
-.menu .menu-body .sorting-cards .card{
-
     border-radius: 7px;
- 
+
+}
+
+.menu .menu-body .sorting-cards .card{
     justify-content: space-between;
 }   
 
@@ -189,9 +188,26 @@ a{
 .menu .menu-body .menu-items{
     height: 40vh;
     width: 100%;
-    background-color: red;
+
 }
 
 .menu .menu-body .menu-items .card{
-    background-color: green;
+    position: relative;
+    overflow: hidden;
+    background: var(--dark-light);
+    
+}
+
+.menu .menu-body .menu-items .card:before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 5%;
+    top: 0;
+    left: 0;
+    background-color: #fac1d9;
+}
+
+.menu .menu-body .menu-items .card .minus-plus .minus-icon{
+    font-weight: 900;
 }

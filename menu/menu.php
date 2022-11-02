@@ -94,7 +94,24 @@
         <hr class = "divider">
         <div class="menu-items">
             <div class="card">
-                new card
+                <div class="card-header">
+                    <span> Orders 
+                    <i class='bx bx-right-arrow-alt'></i> Kitchen <span>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">
+                        <span class = "brand">Fish and chips</span>
+                        <span class = "value">₱10.00</span>
+                    </div>
+                    
+                </div>
+                <div class="card-footer">
+                    <span class = "minus-plus">
+                        <i class='bx bx-minus minus-icon'></i>
+                        0
+                        <i class='bx bx-plus-medical icon'></i>
+                    </span>
+                </div>
             </div>
         </div>
         </div>
