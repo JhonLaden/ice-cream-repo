@@ -11,12 +11,17 @@
     --trans-5: all 0.5s ease;
 
     --sidebar-width: 15%;
-    --menu-width: 60%;
-    --right-sidebar: 15%;
+    --menu-width: 55%;
+    --right-sidebar: 20%;
 }
 .dark-home{
     background: var(--dark-home);
     
+}
+
+.divider{
+    border-color: var(--dirty-white);
+    margin: 5px 0;
 }
 
 .sidebar .sidebar-container{
@@ -39,8 +44,8 @@ a{
 /* sidebar */
 .sidebar{
     width: var(--sidebar-width);
-    height: calc(100vh - 60px);
-    padding: 30px 20px;
+    height: 100vh;
+    padding: 0 30px 20px;
     position: fixed;
 }
 
@@ -105,7 +110,6 @@ a{
     height: calc(100vh - 60px);
     width: var(--menu-width);
     left: calc(var(--sidebar-width) + 40px);
-    padding: 30px 5px;
 
 }
 
@@ -129,28 +133,35 @@ a{
 
 .menu .menu-body{
     width: 100%;
-    height: 40%;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
 }
 
 
 .menu .menu-body .sorting-cards{
     display: flex;
     flex-wrap: wrap;
-    height: 100%;
+    height: 40vh;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-content: space-between;
+
 }
 
-.menu .menu-body .sorting-cards .card{
-    height: 140px;
+.card{
+    height: 48%;
     width: 24%;
     padding: 10px;
-    border-radius: 7px;
     display: flex;
     flex-direction: column;
+}
+.menu .menu-body .menu-items .card,
+.menu .menu-body .sorting-cards .card{
+
+    border-radius: 7px;
+ 
     justify-content: space-between;
-    margin-bottom: 5px;
 }   
 
 .menu .menu-body .sorting-cards .card .card-header,
@@ -165,6 +176,22 @@ a{
 }
 
 .menu .menu-body .sorting-cards .card .card-body .card-title{
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 500;
+}
+
+.menu .menu-body .sorting-cards .card .card-body .item-num{
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: grey;
+}
+
+.menu .menu-body .menu-items{
+    height: 40vh;
+    width: 100%;
+    background-color: red;
+}
+
+.menu .menu-body .menu-items .card{
+    background-color: green;
 }

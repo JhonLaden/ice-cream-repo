@@ -24,7 +24,7 @@
                     <span class = "item-num" >13 items</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card card-2">
                 <div class="card-header">
                 <i class='bx bx-coffee-togo'></i>
                 </div>
@@ -33,7 +33,7 @@
                     <span class = "item-num" >13 items</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card card-3">
                 <div class="card-header">
                 <i class='bx bx-coffee-togo'></i>
                 </div>
@@ -42,7 +42,7 @@
                     <span class = "item-num" >13 items</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card card-4">
                 <div class="card-header">
                 <i class='bx bx-coffee-togo'></i>
                 </div>
@@ -51,7 +51,7 @@
                     <span class = "item-num" >13 items</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card card-5">
                 <div class="card-header">
                 <i class='bx bx-coffee-togo'></i>
                 </div>
@@ -60,7 +60,7 @@
                     <span class = "item-num" >13 items</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card card-6">
                 <div class="card-header">
                 <i class='bx bx-coffee-togo'></i>
                 </div>
@@ -69,7 +69,7 @@
                     <span class = "item-num" >13 items</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card card-7">
                 <div class="card-header">
                 <i class='bx bx-coffee-togo'></i>
                 </div>
@@ -78,7 +78,7 @@
                     <span class = "item-num" >13 items</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card card-8">
                 <div class="card-header">
                 <i class='bx bx-coffee-togo'></i>
                 </div>
@@ -91,6 +91,12 @@
             
         </div>
 
+        <hr class = "divider">
+        <div class="menu-items">
+            <div class="card">
+                new card
+            </div>
+        </div>
         </div>
         
     </section>
