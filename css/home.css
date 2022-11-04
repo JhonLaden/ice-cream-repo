@@ -4,6 +4,7 @@
     --text-light: #dddddd;
     --dark-light: #2d2d2d;
     --dirty-white: #606264;
+    --dirty-white-2: #bfbfbf;
 
     --trans-2: all 0.2s ease;
     --trans-3: all 0.3s ease;
@@ -152,7 +153,6 @@ a{
 .card{
     height: 48%;
     width: 24%;
-    padding: 10px;
     display: flex;
     flex-direction: column;
     border-radius: 7px;
@@ -161,6 +161,8 @@ a{
 
 .menu .menu-body .sorting-cards .card{
     justify-content: space-between;
+    padding: 20px;
+
 }   
 
 .menu .menu-body .sorting-cards .card .card-header,
@@ -179,11 +181,6 @@ a{
     font-weight: 500;
 }
 
-.menu .menu-body .sorting-cards .card .card-body .item-num{
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: grey;
-}
 
 .menu .menu-body .menu-items{
     height: 40vh;
@@ -208,6 +205,84 @@ a{
     background-color: #fac1d9;
 }
 
-.menu .menu-body .menu-items .card .minus-plus .minus-icon{
-    font-weight: 900;
+
+.menu .text{
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: grey;
+}
+
+
+/* menu items */
+.menu-items .card{
+    padding: 10px 20px 20px 20px;
+}
+
+.menu-items .card-header i,
+.menu .menu-items .card-header span{
+    font-size: 0.7rem;
+    margin-bottom: 10%;
+}
+
+
+.menu-items .card-title{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-items .card-title .brand{
+    color: #eeeeee;
+}
+
+.menu-items .card-body{
+    
+    height: 75%;
+    width: 100%;
+}
+.menu-items .card-body .card-title{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.menu-items .card-body .card-title .value{
+    font-size: 0.6;
+    color: #959595;
+    font-weight: 600;
+}
+
+.menu-items .card-footer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.menu-items .card-footer .minus-plus{
+    display: flex;
+    align-items: center;
+    width: 55%;
+    justify-content: space-between;
+}
+
+.menu-items .card-footer .minus-plus .item-count{
+    font-size: 1.1rem;
+    color: var(--dirty-white-2);
+}
+ 
+.menu-items .card-footer .minus-plus .icon{
+    font-size: 1.5rem;
+    color: var(--dirty-white-2);
+}
+
+.menu-items .card-footer .minus-plus .icon{
+    border: 2px solid var(--dirty-white);
+    border-radius: 5px;
+}
+
+#minus{
+    color: var(--dirty-white);
 }

@@ -21,7 +21,7 @@
                 </div>
                 <div class="card-body">
                     <span class = "card-title" >Breakfast</span>
-                    <span class = "item-num" >13 items</span>
+                    <span class = "item-num text" >13 items</span>
                 </div>
             </div>
             <div class="card card-2">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="card-body">
                     <span class = "card-title" >Breakfast</span>
-                    <span class = "item-num" >13 items</span>
+                    <span class = "item-num text" >13 items</span>
                 </div>
             </div>
             <div class="card card-3">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="card-body">
                     <span class = "card-title" >Breakfast</span>
-                    <span class = "item-num" >13 items</span>
+                    <span class = "item-num text" >13 items</span>
                 </div>
             </div>
             <div class="card card-4">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="card-body">
                     <span class = "card-title" >Breakfast</span>
-                    <span class = "item-num" >13 items</span>
+                    <span class = "item-num text" >13 items</span>
                 </div>
             </div>
             <div class="card card-5">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="card-body">
                     <span class = "card-title" >Breakfast</span>
-                    <span class = "item-num" >13 items</span>
+                    <span class = "item-num text" >13 items</span>
                 </div>
             </div>
             <div class="card card-6">
@@ -66,7 +66,7 @@
                 </div>
                 <div class="card-body">
                     <span class = "card-title" >Breakfast</span>
-                    <span class = "item-num" >13 items</span>
+                    <span class = "item-num text" >13 items</span>
                 </div>
             </div>
             <div class="card card-7">
@@ -75,7 +75,7 @@
                 </div>
                 <div class="card-body">
                     <span class = "card-title" >Breakfast</span>
-                    <span class = "item-num" >13 items</span>
+                    <span class = "item-num text" >13 items</span>
                 </div>
             </div>
             <div class="card card-8">
@@ -84,7 +84,7 @@
                 </div>
                 <div class="card-body">
                     <span class = "card-title" >Breakfast</span>
-                    <span class = "item-num" >13 items</span>
+                    <span class = "item-num text"  >13 items</span>
                 </div>
             </div>
             
@@ -94,9 +94,10 @@
         <hr class = "divider">
         <div class="menu-items">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header text">
                     <span> Orders 
-                    <i class='bx bx-right-arrow-alt'></i> Kitchen <span>
+                    <i class='bx bx-right-arrow-alt '></i> Kitchen 
+                    <span>
                 </div>
                 <div class="card-body">
                     <div class="card-title">
@@ -107,12 +108,13 @@
                 </div>
                 <div class="card-footer">
                     <span class = "minus-plus">
-                        <i class='bx bx-minus minus-icon'></i>
-                        0
-                        <i class='bx bx-plus-medical icon'></i>
+                        <i class='bx bx-minus minus-icon icon ' id = "minus"></i>
+                        <span class = "item-count">0</span>
+                        <i class='bx bx-plus icon ' id = "plus"></i>
                     </span>
                 </div>
             </div>
+            
         </div>
         </div>
         
