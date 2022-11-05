@@ -5,6 +5,7 @@
     --dark-light: #2d2d2d;
     --dirty-white: #606264;
     --dirty-white-2: #bfbfbf;
+    --text-color: var(--dirty-white);
 
     --trans-2: all 0.2s ease;
     --trans-3: all 0.3s ease;
@@ -22,7 +23,7 @@
 
 .divider{
     border-color: var(--dirty-white);
-    margin: 5px 0;
+    margin: 15px 0;
 }
 
 .sidebar .sidebar-container{
@@ -178,15 +179,11 @@ a{
 
 .menu .menu-body .sorting-cards .card .card-body .card-title{
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 
-.menu .menu-body .menu-items{
-    height: 40vh;
-    width: 100%;
 
-}
 
 .menu .menu-body .menu-items .card{
     position: relative;
@@ -195,15 +192,9 @@ a{
     
 }
 
-.menu .menu-body .menu-items .card:before{
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 5%;
-    top: 0;
-    left: 0;
-    background-color: #fac1d9;
-}
+
+
+
 
 
 .menu .text{
@@ -214,8 +205,75 @@ a{
 
 
 /* menu items */
-.menu-items .card{
+
+.menu .menu-body .menu-items{
+    height: 40vh;
+    width: 100%;    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+
+.menu .menu-body .menu-items .card:before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 5%;
+    top: 0;
+    left: 0;
+    background: #fac1d9;
+}
+
+.menu .menu-body .menu-items .active:before{
+    width: 100%;
+}
+
+/* card active */
+.menu .menu-body .menu-items .active .brand{
+    color: #000000; 
+
+    font-weight: 600;
+}
+
+
+.menu .menu-body .menu-items .active .card-footer span{
+    color: #000000;     
+}
+
+.menu .menu-body .menu-items .active .card-header span{
+    color: var(--dark-light); 
+    font-weight: bolder;
+}
+
+.menu-items .active  .card-footer .minus-plus .icon{
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+}
+
+.menu-items .active  .card-footer .bx-minus:before{
+    color: black
+}
+
+
+/* card not active */
+.menu .menu-body .menu-items .card-header span{
+    font-weight: 700;
+}
+
+.card{
     padding: 10px 20px 20px 20px;
+}
+
+.card-header, .card-body, .card-footer{
+    z-index: 1;
+}
+
+
+.menu-items .card-container{
+    z-index: 1;
 }
 
 .menu-items .card-header i,
@@ -232,10 +290,10 @@ a{
 
 .menu-items .card-title .brand{
     color: #eeeeee;
+    font-weight: 550;
 }
 
 .menu-items .card-body{
-    
     height: 75%;
     width: 100%;
 }
