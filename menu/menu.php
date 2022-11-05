@@ -8,6 +8,7 @@
 ?>
 
 
+    <div class = "main">
     <section class="menu">
         <div class="menu-header">
         <input type="text" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome" />
@@ -263,9 +264,35 @@
                     </span>
                 </div>
             </div>
-        </div>
-        </div>
+
         
     </section>
+    <section class = "sidebar-right">
+        <div class="title-container">
+            <div class="title">
+                <h1 class="text">Table 5</h1>
+                <span class="sub">Leslie K.</span>
+            </div>
+            <span class="icon-container">
+                <i class='bx bxs-edit-alt icon'></i>
+            </span>
+        </div>
+        <div class="list-container">
+            <ul class="want-list">
+                <li class="want-item">
+                    <div class="details">
+                        <div class="counter-name">
+                            <span class="item-counter">2</span>
+                            <span class="item-name"></span>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="total-container"></div>
+    <section>
+    <div >
+
 </body>
 </html>

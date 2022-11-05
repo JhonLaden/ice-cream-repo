@@ -12,9 +12,9 @@
     --trans-4: all 0.4s ease;
     --trans-5: all 0.5s ease;
 
-    --sidebar-width: 15%;
+    --sidebar-width: 20%;
     --menu-width: 55%;
-    --right-sidebar: 20%;
+    --right-sidebar: 25%;
 }
 .dark-home{
     background: var(--dark-home);
@@ -109,19 +109,17 @@ a{
     position: relative;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 60px);
-    width: var(--menu-width);
-    left: calc(var(--sidebar-width) + 40px);
-
+    height: 100%;
+    width: 55vw;
 }
 
 .menu .menu-header{
-    height: 50px;
+    height: 10vh;
     width: 100%;
     display: flex;
     align-items: center;
     color: var(--dirty-white);
-    margin-bottom: 20px;
+    
 }
 
 .menu .menu-header input{
@@ -192,14 +190,9 @@ a{
     
 }
 
-
-
-
-
-
 .menu .text{
     font-size: 0.7rem;
-    font-weight: 500;
+    font-weight: bolder;
     color: grey;
 }
 
@@ -230,32 +223,6 @@ a{
     width: 100%;
 }
 
-/* card active */
-.menu .menu-body .menu-items .active .brand{
-    color: #000000; 
-
-    font-weight: 600;
-}
-
-
-.menu .menu-body .menu-items .active .card-footer span{
-    color: #000000;     
-}
-
-.menu .menu-body .menu-items .active .card-header span{
-    color: var(--dark-light); 
-    font-weight: bolder;
-}
-
-.menu-items .active  .card-footer .minus-plus .icon{
-    border: 2px solid black;
-    border-radius: 5px;
-    color: black;
-}
-
-.menu-items .active  .card-footer .bx-minus:before{
-    color: black
-}
 
 
 /* card not active */
@@ -343,4 +310,70 @@ a{
 
 #minus{
     color: var(--dirty-white);
+}
+
+/* card active */
+.menu .menu-body .menu-items .active .brand{
+    color: #000000; 
+    font-weight: 600;
+}
+
+
+.menu .menu-body .menu-items .active .card-footer span{
+    color: #000000;     
+}
+
+.menu .menu-body .menu-items .active .card-header span{
+    color: var(--dark-light); 
+    font-weight: bolder;
+}
+
+.menu-items .active .card-footer .minus-plus .icon{
+    border: 1px solid var(--dark-home);
+    border-radius: 5px;
+    color: var(--dark-home);
+}
+
+.active #minus{
+    color: #000000;
+}
+
+/* main */
+.main{
+    height: 100vh;
+    width: calc(var(--menu-width) + var(--right-sidebar));
+    position: relative;
+    left: 20%;
+    display: flex;
+}
+
+.main .sidebar-right{
+    height: 100vh;
+    width: 25vw;
+    padding: 0 20px;
+    color: #EEEEEE;
+}
+
+.main .sidebar-right .title-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 59px; /* FIX THIS MADAFAKA */
+    width: 100%;
+
+}
+
+.main .sidebar-right .title-container .icon-container .icon{
+    display: flex;
+    font-size: 1.2rem;
+    border: 1px solid var(--dirty-white);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.main .sidebar-right .list-container{
+    border: 1px solid red;
+    height: 40vh;
+    width: 100%;
+    overflow-y: hidden;
 }
