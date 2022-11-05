@@ -282,15 +282,67 @@
                 <li class="want-item">
                     <div class="details">
                         <div class="counter-name">
-                            <span class="item-counter">2</span>
-                            <span class="item-name"></span>
+                            <span class="item-counter">1</span>
+                            <span class="item-name">Roast Chicken</span>
+                            <span class="quantity">x2</span>
                         </div>
+                        <div class="price">₱10.00</div>
+
+                    </div>
+                </li>
+
+                <li class="want-item">
+                    <div class="details">
+                        <div class="counter-name">
+                            <span class="item-counter">2</span>
+                            <span class="item-name">Red Caviar</span>
+                            <span class="quantity">x3</span>
+                        </div>
+                        <div class="price">₱36.10</div>
+
+                    </div>
+                </li>
+
+                <li class="want-item">
+                    <div class="details">
+                        <div class="counter-name">
+                            <span class="item-counter">3</span>
+                            <span class="item-name">German Sausage</span>
+                            <span class="quantity">x1</span>
+                        </div>
+                        <div class="price">₱5.34</div>
+
+                    </div>
+                </li>
+
+                <li class="want-item">
+                    <div class="details">
+                        <div class="counter-name">
+                            <span class="item-counter">4</span>
+                            <span class="item-name">Irish Cream</span>
+                            <span class="quantity">x1</span>
+                        </div>
+                        <div class="price">₱4.20</div>
+
+                    </div>
+                </li>
+
+                <li class="want-item">
+                    <div class="details">
+                        <div class="counter-name">
+                            <span class="item-counter">2</span>
+                            <span class="item-name">Strawberry</span>
+                            <span class="quantity">x2</span>
+                        </div>
+                        <div class="price">₱10.00</div>
 
                     </div>
                 </li>
             </ul>
         </div>
-        <div class="total-container"></div>
+        <div class="total-container">
+
+        </div>
     <section>
     <div >
 
