@@ -360,7 +360,7 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 59px; /* FIX THIS MADAFAKA */
+    height: 10vh; /* FIX THIS MADAFAKA */
     width: 100%;
 
 }
@@ -378,19 +378,21 @@ a{
     width: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
+
 }
 
 .main .sidebar-right .list-container .want-list{
-    height: 100%;
     width: 100%;
 }
 
 .main .sidebar-right .list-container .want-list .want-item{
     background: var(--dark-light);
-    height: 8vh;
+    height: 7vh;
     width: 100%;
     border-radius: 5px;
     margin-bottom: 2%;
+    font-size: 0.9rem;
+    position: relative;
 }
 
 .list-container .want-list .want-item .details{
@@ -426,4 +428,38 @@ a{
 
 .list-container .want-list .want-item .details .counter-name .quantity{
     color: var(--dirty-white-2);
+}
+
+/* hover item */
+
+.main .sidebar-right .list-container .want-list .details:hover{
+    margin-left: 50px;
+}
+
+
+
+.main .sidebar-right .list-container .want-list .x-mark{
+    position: absolute;
+    z-index: -1;
+}
+
+
+
+/* scrollbar design */
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #555;
 }

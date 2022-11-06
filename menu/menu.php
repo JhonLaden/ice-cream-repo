@@ -280,6 +280,9 @@
         <div class="list-container">
             <ul class="want-list">
                 <li class="want-item">
+                    <span class="x-mark">
+                        <i class='bx bx-x'></i>
+                    </span>
                     <div class="details">
                         <div class="counter-name">
                             <span class="item-counter">1</span>
@@ -338,11 +341,22 @@
 
                     </div>
                 </li>
+                <li class="want-item">
+                    <div class="details">
+                        <div class="counter-name">
+                            <span class="item-counter">2</span>
+                            <span class="item-name">Strawberry</span>
+                            <span class="quantity">x2</span>
+                        </div>
+                        <div class="price">₱10.00</div>
+
+                    </div>
+                </li>
             </ul>
         </div>
-        <div class="total-container">
+        <!-- <div class="total-container">
 
-        </div>
+        </div> -->
     <section>
     <div >
 
