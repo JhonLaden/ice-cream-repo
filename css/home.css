@@ -15,15 +15,22 @@
     --sidebar-width: 20%;
     --menu-width: 55%;
     --right-sidebar: 25%;
+    --list-width: 150%;
 }
 .dark-home{
     background: var(--dark-home);
-    
+
 }
 
 .divider{
     border-color: var(--dirty-white);
     margin: 15px 0;
+}
+
+.divider-2{
+    border-color: var(--dirty-white);
+    margin: 15px 0;
+    border-style:dashed;
 }
 
 .sidebar .sidebar-container{
@@ -111,6 +118,7 @@ a{
     flex-direction: column;
     height: 100%;
     width: 55vw;
+
 }
 
 .menu .menu-header{
@@ -356,6 +364,7 @@ a{
     flex-direction: column;
 }
 
+
 .main .sidebar-right .title-container{
     display: flex;
     justify-content: space-between;
@@ -377,12 +386,19 @@ a{
     max-height: 40vh;
     width: 100%;
     overflow-x: hidden;
-    overflow-y: scroll;
-
+    overflow-y: overlay;
+    margin-bottom: 20px;
 }
 
 .main .sidebar-right .list-container .want-list{
     width: 100%;
+}
+
+.main .sidebar-right .list-container .want-list .item{
+    background: var(--dirty-white);
+    border-radius: 5px;
+    position: relative;
+
 }
 
 .main .sidebar-right .list-container .want-list .want-item{
@@ -393,6 +409,7 @@ a{
     margin-bottom: 2%;
     font-size: 0.9rem;
     position: relative;
+    transition: var(--trans-3);
 }
 
 .list-container .want-list .want-item .details{
@@ -432,18 +449,25 @@ a{
 
 /* hover item */
 
-.main .sidebar-right .list-container .want-list .details:hover{
+.main .sidebar-right .list-container .want-list .item:hover .want-item{
     margin-left: 50px;
+    z-index: 1;
 }
-
-
 
 .main .sidebar-right .list-container .want-list .x-mark{
     position: absolute;
-    z-index: -1;
+    display: flex;
+    height: 100%;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
 }
 
-
+.main .sidebar-right .list-container .want-list .x-mark .icon{
+    color: crimson;
+    display: flex;
+    font-size: 1.4rem;
+}
 
 /* scrollbar design */
 
@@ -462,4 +486,35 @@ a{
 
 ::-webkit-scrollbar-thumb:hover{
     background: #555;
+}
+
+/* scrollbar design end */
+
+
+/* total container */
+.main .sidebar-right .list-total{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85vh;
+}
+
+.sidebar-right .list-total .total-container{
+    min-height: 40vh;
+}
+
+.sidebar-right .list-total .total-container .total{
+    height: 100%;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    background-color: var(--dark-light);
+    border-radius: 5px;
+}
+
+.mb-10{
+    margin-bottom: 10px;
+}
+.flex-between{
+    display: flex;
+    justify-content: space-between;
 }

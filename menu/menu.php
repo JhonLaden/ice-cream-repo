@@ -277,86 +277,104 @@
                 <i class='bx bxs-edit-alt icon'></i>
             </span>
         </div>
-        <div class="list-container">
-            <ul class="want-list">
-                <li class="want-item">
-                    <span class="x-mark">
-                        <i class='bx bx-x'></i>
-                    </span>
-                    <div class="details">
-                        <div class="counter-name">
-                            <span class="item-counter">1</span>
-                            <span class="item-name">Roast Chicken</span>
-                            <span class="quantity">x2</span>
+        <div class="list-total">
+            <div class="list-container">
+                <ul class="want-list">
+                    <li class="item">
+                        <span class="x-mark">
+                            <i class='bx bxs-trash icon'></i>
+                        </span>
+                        <div class="want-item">
+                            <div class="details">
+                                <div class="counter-name">
+                                    <span class="item-counter">1</span>
+                                    <span class="item-name">Roast Chicken</span>
+                                    <span class="quantity">x2</span>
+                                </div>
+                            <div class="price">₱10.00</div>
                         </div>
-                        <div class="price">₱10.00</div>
+                        
+                    </li>
 
-                    </div>
-                </li>
-
-                <li class="want-item">
-                    <div class="details">
-                        <div class="counter-name">
-                            <span class="item-counter">2</span>
-                            <span class="item-name">Red Caviar</span>
-                            <span class="quantity">x3</span>
+                    <li class="item">
+                        <span class="x-mark">
+                            <i class='bx bxs-trash icon'></i>
+                        </span>
+                        <div class="want-item">
+                            <div class="details">
+                                <div class="counter-name">
+                                    <span class="item-counter">2</span>
+                                    <span class="item-name">Red Caviar</span>
+                                    <span class="quantity">x3</span>
+                                </div>
+                            <div class="price">₱36.90</div>
                         </div>
-                        <div class="price">₱36.10</div>
+                        
+                    </li>
 
-                    </div>
-                </li>
-
-                <li class="want-item">
-                    <div class="details">
-                        <div class="counter-name">
-                            <span class="item-counter">3</span>
-                            <span class="item-name">German Sausage</span>
-                            <span class="quantity">x1</span>
+                    <li class="item">
+                        <span class="x-mark">
+                            <i class='bx bxs-trash icon'></i>
+                        </span>
+                        <div class="want-item">
+                            <div class="details">
+                                <div class="counter-name">
+                                    <span class="item-counter">3</span>
+                                    <span class="item-name">German Sausage</span>
+                                    <span class="quantity">x1</span>
+                                </div>
+                            <div class="price">₱5.60</div>
                         </div>
-                        <div class="price">₱5.34</div>
+                        
+                    </li>
 
-                    </div>
-                </li>
-
-                <li class="want-item">
-                    <div class="details">
-                        <div class="counter-name">
-                            <span class="item-counter">4</span>
-                            <span class="item-name">Irish Cream</span>
-                            <span class="quantity">x1</span>
+                    <li class="item">
+                        <span class="x-mark">
+                            <i class='bx bxs-trash icon'></i>
+                        </span>
+                        <div class="want-item">
+                            <div class="details">
+                                <div class="counter-name">
+                                    <span class="item-counter">4</span>
+                                    <span class="item-name">Irish Cream coffee</span>
+                                    <span class="quantity">x1</span>
+                                </div>
+                            <div class="price">₱4.20</div>
                         </div>
-                        <div class="price">₱4.20</div>
+                        
+                    </li>
 
-                    </div>
-                </li>
+                    
+                    
+            </div>
 
-                <li class="want-item">
-                    <div class="details">
-                        <div class="counter-name">
-                            <span class="item-counter">2</span>
-                            <span class="item-name">Strawberry</span>
-                            <span class="quantity">x2</span>
+            <div class="total-container">
+                <div class="total">
+                    <div class="subtax-total">
+                        <div class="subtax">
+                            <div class="flex-between mb-10">
+                                <span class="text">Subtotal</span>
+                                <span class="value">₱68.30</span>
+                            </div>
+                            <div class="flex-between mb-10">
+                                <span class="text">Tax 10%</span>
+                                <span class="value">₱6.83</span>
+                            </div>
                         </div>
-                        <div class="price">₱10.00</div>
-
-                    </div>
-                </li>
-                <li class="want-item">
-                    <div class="details">
-                        <div class="counter-name">
-                            <span class="item-counter">2</span>
-                            <span class="item-name">Strawberry</span>
-                            <span class="quantity">x2</span>
+                        <hr class = "divider-2">
+                        <div class="flex-between mb-10">
+                            <span class="text">Total</span>
+                            <span class="value">61.47</span>
                         </div>
-                        <div class="price">₱10.00</div>
-
                     </div>
-                </li>
-            </ul>
+                    <div class="place-order">
+                        <button><span>Place Order</span></button>
+                    </div>
+                </div>
+                
+            </div>
         </div>
-        <!-- <div class="total-container">
-
-        </div> -->
+        
     <section>
     <div >
 
