@@ -271,10 +271,10 @@
                             <div class="details">
                                 <div class="counter-name">
                                     <span class="item-counter">1</span>
-                                    <span class="item-name">Roast Chicken</span>
+                                    <span class="item-name">Cookie</span>
                                     <span class="quantity">x2</span>
                                 </div>
-                            <div class="price">₱10.00</div>
+                            <div class="price">₱25.00</div>
                         </div>
                         
                     </li>
@@ -287,10 +287,10 @@
                             <div class="details">
                                 <div class="counter-name">
                                     <span class="item-counter">2</span>
-                                    <span class="item-name">Red Caviar</span>
+                                    <span class="item-name">Caramel</span>
                                     <span class="quantity">x3</span>
                                 </div>
-                            <div class="price">₱36.90</div>
+                            <div class="price">₱35.00</div>
                         </div>
                         
                     </li>
@@ -303,10 +303,10 @@
                             <div class="details">
                                 <div class="counter-name">
                                     <span class="item-counter">3</span>
-                                    <span class="item-name">German Sausage</span>
+                                    <span class="item-name">Chocolate Bar</span>
                                     <span class="quantity">x1</span>
                                 </div>
-                            <div class="price">₱5.60</div>
+                            <div class="price">₱10.00</div>
                         </div>
                         
                     </li>
@@ -322,7 +322,7 @@
                                     <span class="item-name">Irish Cream coffee</span>
                                     <span class="quantity">x1</span>
                                 </div>
-                            <div class="price">₱4.20</div>
+                            <div class="price">₱25.00</div>
                         </div>
                         
                     </li>
@@ -337,17 +337,17 @@
                         <div class="subtax">
                             <div class="flex-between mb-10">
                                 <span class="text">Subtotal</span>
-                                <span class="value">₱68.30</span>
+                                <span class="value">₱190.00</span>
                             </div>
                             <div class="flex-between mb-10">
-                                <span class="text">Tax 10%</span>
-                                <span class="value">₱6.83</span>
+                                <span class="text">Discount 10%</span>
+                                <span class="value">₱19.00</span>
                             </div>
                         </div>
                         <hr class = "divider-2">
                         <div class="flex-between mb-10">
                             <span class="text">Total</span>
-                            <span class="value">61.47</span>
+                            <span class="value">₱171.00</span>
                         </div>
                     </div>
                     <div class="place-order">
