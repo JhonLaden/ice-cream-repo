@@ -41,12 +41,16 @@
         <div class="menu-items" >
             <?php
                 foreach($item as $key => $value){
-                    echo '
-                    <div class="card ';
-                    if($value['number'] > 0){
-                        echo 'active';
-                    }
-                    echo '">
+            ?>
+                <div class="card item
+            <?php
+                if($value['number'] > 0){
+            ?>
+                    active
+            <?php
+                }
+            ?>
+                ">
                     <div class="card-header text">
                         <span> Orders 
                         <i class="bx bx-right-arrow-alt "></i> Kitchen 
@@ -54,29 +58,27 @@
                     </div>
                     <div class="card-body">
                         <div class="card-title">
-                            <span class = "brand">'.$value['title'] .'</span>
-                            <span class = "value">₱'.$value['price'] ;
-            ?>
+                            <span class = "brand"> <?php echo $value['title']; ?></span>
+                            <span class = "value">₱ <?php echo $value['price']; ?>
+        
             <?php
                 if($value['price'] % 1 == 0) echo '.00';
             ?>
-            <?php
-                echo '
-                            </span>
-                        </div>
-                        
+                        </span>
                     </div>
+                        
+                </div>
                     <div class="card-footer">
                         <span class = "minus-plus">
-                            <i class="bx bx-minus minus-icon icon " id = "minus"></i>
-                            <span class = "item-count">'.$value['number'].'</span>
-                            <i class="bx bx-plus icon " id = "plus"></i>
+                            <i class="bx bx-minus minus-icon icon minus" ></i>
+                            <span class = "item-count"><?php echo $value['number'] ?></span>
+                            <i class="bx bx-plus icon plus"></i>
                         </span>
                     </div>
                 </div>
-                    ';
+                <?php 
                 }
-            ?>
+                ?>
             <!-- <div class="card">
                 <div class="card-header text">
                     <span> Orders 
@@ -360,6 +362,8 @@
         
     <section>
     <div >
+
+    <script src = "../script/menu.js" > </script>
 
 </body>
 </html>

@@ -163,7 +163,7 @@ a{
     display: flex;
     flex-direction: column;
     border-radius: 7px;
-
+    transition: var(--trans-3);
 }
 
 .menu .menu-body .sorting-cards .card{
@@ -225,6 +225,7 @@ a{
     top: 0;
     left: 0;
     background: #fac1d9;
+    transition: var(--trans-5);
 }
 
 .menu .menu-body .menu-items .active:before{
@@ -517,4 +518,10 @@ a{
 .flex-between{
     display: flex;
     justify-content: space-between;
+}
+
+
+.minus-plus .minus,
+.minus-plus .plus{
+    cursor: pointer;
 }
