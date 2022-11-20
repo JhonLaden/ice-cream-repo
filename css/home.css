@@ -1,3 +1,6 @@
+/* imports */
+@import 'keyframes.css';
+
 /* home */
 :root{
     --dark-home: #111315;
@@ -399,7 +402,13 @@ a{
     background: var(--dirty-white);
     border-radius: 5px;
     position: relative;
+}
 
+.animated-entrance{
+    animation-name: item-entrance;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
 }
 
 .main .sidebar-right .list-container .want-list .want-item{

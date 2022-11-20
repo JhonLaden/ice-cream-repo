@@ -2,7 +2,67 @@ const itemElement = document.getElementsByClassName('item');
 const plus = document.getElementsByClassName('plus');
 const minus = document.getElementsByClassName('minus');
 const wantList = [];
-var cardList = [];
+var cardList = [`<li class="item">
+<span class="x-mark">
+    <i class='bx bxs-trash icon'></i>
+</span>
+<div class="want-item">
+    <div class="details">
+        <div class="counter-name">
+            <span class="item-counter">1</span>
+            <span class="item-name">Cookie</span>
+            <span class="quantity">x2</span>
+        </div>
+    <div class="price">₱25.00</div>
+</div>
+
+</li>`,
+`<li class="item">
+<span class="x-mark">
+    <i class='bx bxs-trash icon'></i>
+</span>
+<div class="want-item">
+    <div class="details">
+        <div class="counter-name">
+            <span class="item-counter">2</span>
+            <span class="item-name">Caramel</span>
+            <span class="quantity">x3</span>
+        </div>
+    <div class="price">₱35.00</div>
+</div>
+
+</li>`,
+`<li class="item">
+<span class="x-mark">
+    <i class='bx bxs-trash icon'></i>
+</span>
+<div class="want-item">
+    <div class="details">
+        <div class="counter-name">
+            <span class="item-counter">3</span>
+            <span class="item-name">Chocolate Bar</span>
+            <span class="quantity">x1</span>
+        </div>
+    <div class="price">₱10.00</div>
+</div>
+
+</li>`,
+`<li class="item">
+<span class="x-mark">
+    <i class='bx bxs-trash icon'></i>
+</span>
+<div class="want-item">
+    <div class="details">
+        <div class="counter-name">
+            <span class="item-counter">4</span>
+            <span class="item-name">Irish Cream coffee</span>
+            <span class="quantity">x1</span>
+        </div>
+    <div class="price">₱25.00</div>
+</div>
+
+</li>`
+];
 
 
 
@@ -46,33 +106,47 @@ for (var i = 0; i < minus.length; i++){
 }
 
 function updateWantList( card, isAdd){
-    cardList.push(card);
+    //details of the incremented card
+    var wantList = document.getElementsByClassName('want-list')[0];
+    const itemTitle = card.getElementsByClassName('brand')[0].textContent;
+    const itemCount = card.getElementsByClassName('item-count')[0].textContent;
+    const cardValue = card.getElementsByClassName('value')[0].textContent;
+
+    var newCard = 
+    `
+    <li class = "item animated-entrance">
+        <span class="x-mark">
+            <i class='bx bxs-trash icon'></i>
+        </span>
+        <div class="want-item">
+            <div class="details">
+                <div class="counter-name">
+                    <span class="item-counter">${cardList.length+1}</span>
+                    <span class="item-name">${itemTitle}</span>
+                    <span class="quantity">x${itemCount}</span>
+                </div>
+            <div class="price">${cardValue}</div>
+        </div>
+    </li>
+    `;
+    cardList.push(newCard);
+  
 }
 
 function renderWantList(){
-    var wantListCont = document.getElementsByClassName('want-list')[0];
-    var itemRows = wantListCont.getElementsByClassName('item');
+    var wantList = document.getElementsByClassName('want-list')[0];
+    var listString = '';
+    for(var i = 0; i < cardList.length; i++){
+        listString += cardList[i];
+    }
+    wantList.innerHTML = listString ;
+    removeAllanimation();
+}
 
-    for(var i = 0; i < itemRows.length; i++){
-        console.log(itemRows[i]);
-        var itemTitle = itemRows.getElementsByClassName('brand');
-        var itemTitle = itemTitle.textContent;
-        var htmlCard = 
-        `<li class="item">
-            <span class="x-mark">
-                <i class='bx bxs-trash icon'></i>
-            </span>
-            <div class="want-item">
-                <div class="details">
-                    <div class="counter-name">
-                        <span class="item-counter">1</span>
-                        <span class="item-name">${itemTitle}</span>
-                        <span class="quantity">x2</span>
-                    </div>
-                <div class="price">₱25.00</div>
-            </div>
-        </li>`;
-        wantList.push(htmlCard);
+function removeAllanimation(){
+    for(var i = 0; i <cardList.length; i++){
+        cardList[i] = cardList[i].replace('animated-entrance', '');
     }
 }
+
 
