@@ -2,67 +2,7 @@ const itemElement = document.getElementsByClassName('item');
 const plus = document.getElementsByClassName('plus');
 const minus = document.getElementsByClassName('minus');
 const wantList = [];
-var cardList = [`<li class="item">
-<span class="x-mark">
-    <i class='bx bxs-trash icon'></i>
-</span>
-<div class="want-item">
-    <div class="details">
-        <div class="counter-name">
-            <span class="item-counter">1</span>
-            <span class="item-name">Cookie</span>
-            <span class="quantity">x2</span>
-        </div>
-    <div class="price">₱25.00</div>
-</div>
-
-</li>`,
-`<li class="item">
-<span class="x-mark">
-    <i class='bx bxs-trash icon'></i>
-</span>
-<div class="want-item">
-    <div class="details">
-        <div class="counter-name">
-            <span class="item-counter">2</span>
-            <span class="item-name">Caramel</span>
-            <span class="quantity">x3</span>
-        </div>
-    <div class="price">₱35.00</div>
-</div>
-
-</li>`,
-`<li class="item">
-<span class="x-mark">
-    <i class='bx bxs-trash icon'></i>
-</span>
-<div class="want-item">
-    <div class="details">
-        <div class="counter-name">
-            <span class="item-counter">3</span>
-            <span class="item-name">Chocolate Bar</span>
-            <span class="quantity">x1</span>
-        </div>
-    <div class="price">₱10.00</div>
-</div>
-
-</li>`,
-`<li class="item">
-<span class="x-mark">
-    <i class='bx bxs-trash icon'></i>
-</span>
-<div class="want-item">
-    <div class="details">
-        <div class="counter-name">
-            <span class="item-counter">4</span>
-            <span class="item-name">Irish Cream coffee</span>
-            <span class="quantity">x1</span>
-        </div>
-    <div class="price">₱25.00</div>
-</div>
-
-</li>`
-];
+var cardList = [];
 
 
 

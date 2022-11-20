@@ -59,12 +59,9 @@
                     <div class="card-body">
                         <div class="card-title">
                             <span class = "brand"> <?php echo $value['title']; ?></span>
-                            <span class = "value">₱ <?php echo $value['price']; ?>
-        
-            <?php
-                if($value['price'] % 1 == 0) echo '.00';
-            ?>
-                        </span>
+                            <span class = "value">₱ <?php echo ($value['price']);
+                            if($value['price'] % 1 == 0) echo ('.00');?>
+                            </span>
                     </div>
                         
                 </div>
@@ -100,154 +97,7 @@
                     </span>
                 </div>
             </div>
-            <div class="card active">
-                <div class="card-header text">
-                    <span> Orders 
-                    <i class='bx bx-right-arrow-alt '></i> Kitchen 
-                    <span>
-                </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        <span class = "brand">Roast Chicken</span>
-                        <span class = "value">₱10.00</span>
-                        
-                    </div>
-                    
-                </div>
-                <div class="card-footer">
-                    <span class = "minus-plus">
-                        <i class='bx bx-minus minus-icon icon ' id = "minus"></i>
-                        <span class = "item-count">2</span>
-                        <i class='bx bx-plus icon ' id = "plus"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header text ">
-                    <span> Orders 
-                    <i class='bx bx-right-arrow-alt '></i> Kitchen 
-                    <span>
-                </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        <span class = "brand">Fish and chips</span>
-                        <span class = "value">₱10.00</span>
-                    </div>
-                    
-                </div>
-                <div class="card-footer">
-                    <span class = "minus-plus">
-                        <i class='bx bx-minus minus-icon icon ' id = "minus"></i>
-                        <span class = "item-count">0</span>
-                        <i class='bx bx-plus icon ' id = "plus"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header text">
-                    <span > Orders 
-                    <i class='bx bx-right-arrow-alt '></i> Kitchen 
-                    <span>
-                </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        <span class = "brand">Fish and chips</span>
-                        <span class = "value">₱10.00</span>
-                    </div>
-                    
-                </div>
-                <div class="card-footer">
-                    <span class = "minus-plus">
-                        <i class='bx bx-minus minus-icon icon ' id = "minus"></i>
-                        <span class = "item-count">0</span>
-                        <i class='bx bx-plus icon ' id = "plus"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header text">
-                    <span> Orders 
-                    <i class='bx bx-right-arrow-alt '></i> Kitchen 
-                    <span>
-                </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        <span class = "brand">Fish and chips</span>
-                        <span class = "value">₱10.00</span>
-                    </div>
-                    
-                </div>
-                <div class="card-footer">
-                    <span class = "minus-plus">
-                        <i class='bx bx-minus minus-icon icon ' id = "minus"></i>
-                        <span class = "item-count">0</span>
-                        <i class='bx bx-plus icon ' id = "plus"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header text">
-                    <span> Orders 
-                    <i class='bx bx-right-arrow-alt '></i> Kitchen 
-                    <span>
-                </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        <span class = "brand">Fish and chips</span>
-                        <span class = "value">₱10.00</span>
-                    </div>
-                    
-                </div>
-                <div class="card-footer">
-                    <span class = "minus-plus">
-                        <i class='bx bx-minus minus-icon icon ' id = "minus"></i>
-                        <span class = "item-count">0</span>
-                        <i class='bx bx-plus icon ' id = "plus"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header text">
-                    <span> Orders 
-                    <i class='bx bx-right-arrow-alt '></i> Kitchen 
-                    <span>
-                </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        <span class = "brand">Fish and chips</span>
-                        <span class = "value">₱10.00</span>
-                    </div>
-                    
-                </div>
-                <div class="card-footer">
-                    <span class = "minus-plus">
-                        <i class='bx bx-minus minus-icon icon ' id = "minus"></i>
-                        <span class = "item-count">0</span>
-                        <i class='bx bx-plus icon ' id = "plus"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header text">
-                    <span> Orders 
-                    <i class='bx bx-right-arrow-alt '></i> Kitchen 
-                    <span>
-                </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        <span class = "brand">Fish and chips</span>
-                        <span class = "value">₱10.00</span>
-                    </div>
-                    
-                </div>
-                <div class="card-footer">
-                    <span class = "minus-plus">
-                        <i class='bx bx-minus minus-icon icon ' id = "minus"></i>
-                        <span class = "item-count">0</span>
-                        <i class='bx bx-plus icon ' id = "plus"></i>
-                    </span>
-                </div>
-            </div> -->
+            -->
 
         
     </section>
@@ -265,7 +115,7 @@
             <div class="list-container">
                 <ul class="want-list">
                     
-                    <li class="item">
+                    <!-- <li class="item">
                         <span class="x-mark">
                             <i class='bx bxs-trash icon'></i>
                         </span>
@@ -281,53 +131,7 @@
                         
                     </li>
 
-                    <li class="item">
-                        <span class="x-mark">
-                            <i class='bx bxs-trash icon'></i>
-                        </span>
-                        <div class="want-item">
-                            <div class="details">
-                                <div class="counter-name">
-                                    <span class="item-counter">2</span>
-                                    <span class="item-name">Caramel</span>
-                                    <span class="quantity">x3</span>
-                                </div>
-                            <div class="price">₱35.00</div>
-                        </div>
-                        
-                    </li>
-
-                    <li class="item">
-                        <span class="x-mark">
-                            <i class='bx bxs-trash icon'></i>
-                        </span>
-                        <div class="want-item">
-                            <div class="details">
-                                <div class="counter-name">
-                                    <span class="item-counter">3</span>
-                                    <span class="item-name">Chocolate Bar</span>
-                                    <span class="quantity">x1</span>
-                                </div>
-                            <div class="price">₱10.00</div>
-                        </div>
-                        
-                    </li>
-
-                    <li class="item">
-                        <span class="x-mark">
-                            <i class='bx bxs-trash icon'></i>
-                        </span>
-                        <div class="want-item">
-                            <div class="details">
-                                <div class="counter-name">
-                                    <span class="item-counter">4</span>
-                                    <span class="item-name">Irish Cream coffee</span>
-                                    <span class="quantity">x1</span>
-                                </div>
-                            <div class="price">₱25.00</div>
-                        </div>
-                        
-                    </li>
+                     -->
 
                     
                     

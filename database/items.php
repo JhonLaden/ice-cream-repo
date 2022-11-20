@@ -8,7 +8,7 @@
         array(
             'title' => 'Cookie',
             'price' => 25.00,
-            'number' => 1
+            'number' => 0
         ),
         array(
             'title' => 'Wallnut',
@@ -38,7 +38,7 @@
         array(
             'title' => 'Caramel',
             'price' => 35.00,
-            'number' => 3
+            'number' => 0
         ),
     );
 
