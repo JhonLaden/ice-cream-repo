@@ -1,7 +1,6 @@
 const itemElement = document.getElementsByClassName('item');
 const plus = document.getElementsByClassName('plus');
 const minus = document.getElementsByClassName('minus');
-const wantList = [];
 var cardList = [];
 
 
@@ -52,24 +51,42 @@ function updateWantList( card, isAdd){
     const itemCount = card.getElementsByClassName('item-count')[0].textContent;
     const cardValue = card.getElementsByClassName('value')[0].textContent;
 
-    var newCard = 
-    `
-    <li class = "item animated-entrance">
-        <span class="x-mark">
-            <i class='bx bxs-trash icon'></i>
-        </span>
-        <div class="want-item">
-            <div class="details">
-                <div class="counter-name">
-                    <span class="item-counter">${cardList.length+1}</span>
-                    <span class="item-name">${itemTitle}</span>
-                    <span class="quantity">x${itemCount}</span>
-                </div>
-            <div class="price">${cardValue}</div>
-        </div>
-    </li>
-    `;
-    cardList.push(newCard);
+    var newCard = document.createElement('li')
+    console.log(newCard);
+    var span = document.createElement('span');
+    newCard.appendChild(span);
+    console.log(newCard);
+    // `
+    // <li class = "item animated-entrance">
+    //     <span class="x-mark">
+    //         <i class='bx bxs-trash icon'></i>
+    //     </span>
+    //     <div class="want-item">
+    //         <div class="details">
+    //             <div class="counter-name">
+    //                 <span class="item-counter">${cardList.length+1}</span>
+    //                 <span class="item-name">${itemTitle}</span>
+    //                 <span class="quantity">x${itemCount}</span>
+    //             </div>
+    //         <div class="price">${cardValue}</div>
+    //     </div>
+    // </li>
+    // `;
+
+    // if(isAdd){
+    //     var newCardTitle = newCard.getElementsByClassName('item-name');
+    //     console.log(newCardTitle);
+    //     for(var i = 0; i < cardList.length; i++){
+    //         var oldCardTitle = cardList[i].getElementsByClassName('item-name');
+    //         console.log(oldCardTitle);
+    //         if(newCardTitle == oldCardTitle){
+    //             itemCount = newCard.getElementsByClassName('quantity');
+    //             cardList.push(newCard);
+    //             break;
+    //         }
+    //     }
+
+    // }
   
 }
 

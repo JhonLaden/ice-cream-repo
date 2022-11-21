@@ -114,8 +114,7 @@
         <div class="list-total">
             <div class="list-container">
                 <ul class="want-list">
-                    
-                    <!-- <li class="item">
+                    <li hidden class="item">
                         <span class="x-mark">
                             <i class='bx bxs-trash icon'></i>
                         </span>
@@ -128,10 +127,9 @@
                                 </div>
                             <div class="price">₱25.00</div>
                         </div>
-                        
                     </li>
 
-                     -->
+                    
 
                     
                     
