@@ -1,9 +1,10 @@
 const itemElement = document.getElementsByClassName('item');
 const plus = document.getElementsByClassName('plus');
 const minus = document.getElementsByClassName('minus');
-var cardList = [];
 
-
+function getCardList(){
+    return document.getElementsByClassName('list-item');
+}
 
 
 for (var i = 0; i < plus.length; i++){
@@ -47,7 +48,9 @@ for (var i = 0; i < minus.length; i++){
     });
 }
 
+
 function updateWantList( card, isAdd){
+    const cardList = getCardList();
     //details of the incremented card
     var wantList = document.getElementsByClassName('want-list')[0];
     const itemTitle = card.getElementsByClassName('brand')[0].textContent;
@@ -109,7 +112,8 @@ function updateWantList( card, isAdd){
 
     if(validateDuplicateList(newCard) || cardList.length == 0 && isAdd){
         cardList.push(newCard);
-    }else if(validateDuplicateList(newCard) && !isAdd){
+    }else if(!validateDuplicateList(newCard) && !isAdd){
+        console.log('minus');
         for(var i = 0; i< cardList.length; i++){
             var cardListTitle = cardList[i].getElementsByClassName('item-name')[0];
             var newCardTitle = newCard.getElementsByClassName('item-name')[0];
@@ -136,9 +140,12 @@ function updateWantList( card, isAdd){
 function render(){
     var wantList = document.getElementsByClassName('want-list')[0];
     wantList.innerHTML = '';
-    for(var i = 0; i < cardList.length; i++){
-        wantList.appendChild(cardList[i]);
+    if(cardList.length > 0){
+        for(var i = 0; i < cardList.length; i++){
+            wantList.appendChild(cardList[i]);
+        }
     }
+    
 }
 
 function renderWantList(){
@@ -146,6 +153,15 @@ function renderWantList(){
     var wantList = document.getElementsByClassName('want-list')[0];
 
     for(var i = 0; i < cardList.length; i++){
+        var xButton = cardList[i].getElementsByClassName('x-mark')[0];
+        console.log(xButton.textContent);
+        xButton.addEventListener('click', function(event){
+            var xClicked = event.target;
+            xClicked.parentElement.parentElement.remove();
+            console.log(cardList.length);
+            render();
+            console.log(cardList.length);
+        });
         wantList.appendChild(cardList[i]);
         setTimeout(removeAllanimation, 700)
     }
@@ -155,7 +171,7 @@ function renderWantList(){
 function removeAllanimation(){
     for(var i = 0 ; i < cardList.length; i++){
         cardList[i].classList.remove('animated-entrance');
-    }
+    }   
 }
 
 function validateDuplicateList(card){
@@ -175,11 +191,8 @@ function validateZero(arr){
         var quantity = arr[i].getElementsByClassName('quantity')[0];
         if(quantity.textContent == 0){
             // fadeOut(i);
-            setTimeout(function(){
-                arr = removeItemOnce(arr, arr[i]);
-                console.log(arr);
-                render();
-            }, 700)
+            arr = removeItemOnce(arr, arr[i]);
+            render();
             
         }
     }

@@ -479,12 +479,19 @@ a{
     width: 50px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.main .sidebar-right .list-container .want-list .x-mark:hover .icon{
+    font-size: 1.7rem;
+    color: red;
 }
 
 .main .sidebar-right .list-container .want-list .x-mark .icon{
     color: crimson;
     display: flex;
     font-size: 1.4rem;
+    transition: var(--trans-3);
 }
 
 /* scrollbar design */
