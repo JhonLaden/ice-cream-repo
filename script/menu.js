@@ -51,27 +51,73 @@ function updateWantList( card, isAdd){
     const itemCount = card.getElementsByClassName('item-count')[0].textContent;
     const cardValue = card.getElementsByClassName('value')[0].textContent;
 
+    // creating tags
     var newCard = document.createElement('li')
-    console.log(newCard);
-    var span = document.createElement('span');
-    newCard.appendChild(span);
-    console.log(newCard);
-    // `
-    // <li class = "item animated-entrance">
-    //     <span class="x-mark">
-    //         <i class='bx bxs-trash icon'></i>
-    //     </span>
-    //     <div class="want-item">
-    //         <div class="details">
-    //             <div class="counter-name">
-    //                 <span class="item-counter">${cardList.length+1}</span>
-    //                 <span class="item-name">${itemTitle}</span>
-    //                 <span class="quantity">x${itemCount}</span>
-    //             </div>
-    //         <div class="price">${cardValue}</div>
-    //     </div>
-    // </li>
-    // `;
+    var icon = document.createElement('span');
+    var want = document.createElement('div');
+    var details = document.createElement('div');    
+    var price = document.createElement('div');
+
+    var counterName = document.createElement('div');
+    var itemCounter = document.createElement('span');
+    var itemName = document.createElement('span');
+    var itemQuant = document.createElement('span');
+
+    // adding class name
+    newCard.classList.add('item');
+    newCard.classList.add('animated-entrance');
+    icon.classList.add('x-mark');
+    icon.innerHTML = `<i class='bx bxs-trash icon'></i>`;
+    want.classList.add('want-item');
+    details.classList.add('details');
+    counterName.classList.add('counter-name');
+    itemCounter.classList.add('item-counter');
+    itemName.classList.add('item-name');
+    itemQuant.classList.add('quantity');
+    price.classList.add('price');
+
+    // appending..
+    counterName.appendChild(itemCounter);
+    counterName.appendChild(itemName);
+    counterName.appendChild(itemQuant);
+    
+    details.appendChild(counterName);
+    details.appendChild(price);
+
+    want.appendChild(details);
+
+    newCard.appendChild(icon);
+    newCard.appendChild(want);
+
+    // adding value for each tag
+    var newCardItemCounter = newCard.getElementsByClassName('item-counter')[0];
+    var newCardItemName = newCard.getElementsByClassName('item-name')[0];
+    var newCardItemQuant = newCard.getElementsByClassName('quantity')[0];
+    var newCardPrice = newCard.getElementsByClassName('price')[0];
+
+
+    // assigning value to temp variables
+    newCardItemCounter.textContent = cardList.length+1;
+    newCardItemName.textContent = itemTitle;
+    newCardItemQuant.textContent = itemCount;
+    newCardPrice.textContent = (cardValue);
+
+
+
+    if(validateDuplicateList(newCard)){
+        console.log('true');
+        cardList.push(newCard);
+    }else{
+        console.log('false')
+        for(var i = 0; i< cardList.length; i++){
+            var cardListTitle = cardList[i].getElementsByClassName('item-name')[i];
+            var newCardTitle = newCard.getElementsByClassName('item-name')[0];
+
+            if(cardListTitle == newCardTitle){
+                cardList[0].getElementsByClassName('quantity')[0].textContent = newCardItemQuant;
+            }
+        }
+    }
 
     // if(isAdd){
     //     var newCardTitle = newCard.getElementsByClassName('item-name');
@@ -92,18 +138,28 @@ function updateWantList( card, isAdd){
 
 function renderWantList(){
     var wantList = document.getElementsByClassName('want-list')[0];
-    var listString = '';
+
     for(var i = 0; i < cardList.length; i++){
-        listString += cardList[i];
+        wantList.appendChild(cardList[i]);
+        setTimeout(removeAllanimation, 800)
     }
-    wantList.innerHTML = listString ;
-    removeAllanimation();
+
 }
 
 function removeAllanimation(){
-    for(var i = 0; i <cardList.length; i++){
-        cardList[i] = cardList[i].replace('animated-entrance', '');
+    for(var i = 0 ; i < cardList.length; i++){
+        cardList[i].classList.remove('animated-entrance');
     }
 }
 
+function validateDuplicateList(card){
+    var cardName = card.getElementsByClassName('item-name');
+    for(var i = 0; i < cardItems.length; i++){
+    var cardItems = cardList.getElementsByClassName('item-name');
 
+        if(cardName == cardItems[i]){
+            return false;
+        }
+    }
+    return true;
+}
