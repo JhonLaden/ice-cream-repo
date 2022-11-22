@@ -41,6 +41,9 @@ for (var i = 0; i < minus.length; i++){
             if(value_int < 0) value_int = 0;
         }
         value.textContent = value_int;
+
+        updateWantList(card, false);
+        renderWantList();
     });
 }
 
@@ -104,44 +107,47 @@ function updateWantList( card, isAdd){
 
 
 
-    if(validateDuplicateList(newCard)){
-        console.log('true');
+    if(validateDuplicateList(newCard) || cardList.length == 0 && isAdd){
         cardList.push(newCard);
-    }else{
-        console.log('false')
+    }else if(validateDuplicateList(newCard) && !isAdd){
         for(var i = 0; i< cardList.length; i++){
-            var cardListTitle = cardList[i].getElementsByClassName('item-name')[i];
+            var cardListTitle = cardList[i].getElementsByClassName('item-name')[0];
             var newCardTitle = newCard.getElementsByClassName('item-name')[0];
 
-            if(cardListTitle == newCardTitle){
-                cardList[0].getElementsByClassName('quantity')[0].textContent = newCardItemQuant;
+            if(cardListTitle.textContent == newCardTitle.textContent){
+                cardList[i].getElementsByClassName('quantity')[0].textContent = newCardItemQuant.textContent;
+                break;
+            }
+        }
+    }else{
+        for(var i = 0; i< cardList.length; i++){
+            var cardListTitle = cardList[i].getElementsByClassName('item-name')[0];
+            var newCardTitle = newCard.getElementsByClassName('item-name')[0];
+
+            if(cardListTitle.textContent == newCardTitle.textContent){
+                cardList[i].getElementsByClassName('quantity')[0].textContent = newCardItemQuant.textContent;
+                break;
             }
         }
     }
-
-    // if(isAdd){
-    //     var newCardTitle = newCard.getElementsByClassName('item-name');
-    //     console.log(newCardTitle);
-    //     for(var i = 0; i < cardList.length; i++){
-    //         var oldCardTitle = cardList[i].getElementsByClassName('item-name');
-    //         console.log(oldCardTitle);
-    //         if(newCardTitle == oldCardTitle){
-    //             itemCount = newCard.getElementsByClassName('quantity');
-    //             cardList.push(newCard);
-    //             break;
-    //         }
-    //     }
-
-    // }
   
 }
 
+function render(){
+    var wantList = document.getElementsByClassName('want-list')[0];
+    wantList.innerHTML = '';
+    for(var i = 0; i < cardList.length; i++){
+        wantList.appendChild(cardList[i]);
+    }
+}
+
 function renderWantList(){
+    validateZero(cardList);
     var wantList = document.getElementsByClassName('want-list')[0];
 
     for(var i = 0; i < cardList.length; i++){
         wantList.appendChild(cardList[i]);
-        setTimeout(removeAllanimation, 800)
+        setTimeout(removeAllanimation, 700)
     }
 
 }
@@ -153,13 +159,41 @@ function removeAllanimation(){
 }
 
 function validateDuplicateList(card){
-    var cardName = card.getElementsByClassName('item-name');
-    for(var i = 0; i < cardItems.length; i++){
-    var cardItems = cardList.getElementsByClassName('item-name');
+    var cardName = card.getElementsByClassName('item-name')[0];
+    for(var i = 0; i < cardList.length; i++){
+        var cardItem = cardList[i].getElementsByClassName('item-name')[0];
 
-        if(cardName == cardItems[i]){
+        if(cardName.textContent == cardItem.textContent){
             return false;
         }
     }
     return true;
 }
+
+function validateZero(arr){
+    for (var i = 0; i < arr.length; i++){
+        var quantity = arr[i].getElementsByClassName('quantity')[0];
+        if(quantity.textContent == 0){
+            // fadeOut(i);
+            setTimeout(function(){
+                arr = removeItemOnce(arr, arr[i]);
+                console.log(arr);
+                render();
+            }, 700)
+            
+        }
+    }
+}
+
+function fadeOut(i){
+    cardList[i].classList.add('fade-out');
+
+}
+
+function removeItemOnce(arr, value) {
+    var index = arr.indexOf(value);
+    if (index > -1) {
+      arr.splice(index, 1);
+    }
+    return arr;
+  }

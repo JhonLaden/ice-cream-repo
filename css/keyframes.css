@@ -1,4 +1,24 @@
 @keyframes item-entrance{
-    0%{left: 100%}
-    100%{left: 0%}
+    0%{left: 100%; 
+        opacity: 0;
+    }
+    50%{
+       
+        opacity: 0.5;
+    }
+    100%{left: 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out{
+    0%{left: 0%; 
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{left: 100%;
+        opacity: 0;}
+
 }
