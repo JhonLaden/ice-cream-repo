@@ -89,7 +89,6 @@ function createCard(){
     newCard.appendChild(icon);
     newCard.appendChild(want);
 
-    
 
     return newCard;
 }
@@ -116,6 +115,18 @@ function addToList( card ){
     newCardItemName.textContent = itemTitle;
     newCardItemQuant.textContent = itemCount;
     newCardPrice.textContent = (cardValue);
+
+    // if x button is clicked
+    var xButton = newCard.getElementsByClassName('x-mark')[0];
+    xButton.addEventListener('click',function(){
+        newCard.classList.add('fade-out');
+        card.getElementsByClassName('item-count')[0].textContent = 0;
+        card.classList.remove('active');
+        setTimeout(function(){
+            cardList = removeItemOnce(cardList, newCard);
+            render();
+        }, 700);
+    });
 
 
 
@@ -163,14 +174,72 @@ function deductFromList(card){
     }
 }
 
+function stringToFloat(myNum){
+    return parseFloat(myNum).toFixed(2);
+}
+
+
 function render(){
     var wantList = document.getElementsByClassName('want-list')[0];
+    var total = document.getElementsByClassName('total')[0];
+    var subTotal = document.querySelectorAll('.subtax-total .sub .value')[0];
+    var discount = document.querySelectorAll('.subtax-total .disc .value')[0];
+    var grandTotal = document.querySelectorAll('.subtax-total .grand-total .value')[0];
+    
+    // removing peso sign because of my stupidity
+    subTotal.textContent = subTotal.textContent.replace('₱', '');
+    discount.textContent = discount.textContent.replace('₱', '');
+    grandTotal.textContent = grandTotal.textContent.replace('₱', '');
+
+    // initializing
+    subTotal.textContent = '0.00';
+    discount.textContent = '0.00';
+    grandTotal.textContent = '0.00';
+    
+    // initialize the want list as empty
     wantList.innerHTML = '';
+
+    //if array is not empty
     if(cardList.length > 0){
         for(var i = 0; i < cardList.length; i++){
+            //every iteration should remove peso sign for the card
+            cardList[i].getElementsByClassName('item-counter')[0].textContent = (i+1);
+
+
+            // getting price and quantity of the card
+            var cardPrice = cardList[i].getElementsByClassName('price')[0].textContent.replace('₱','');
+            var cardQuantity = cardList[i].getElementsByClassName('quantity')[0].textContent;
+
+
+            //calculating subtotal...
+            subTotal.textContent = (+subTotal.textContent) + ((+cardPrice) * (+cardQuantity));
+            subTotal.textContent = addDecimals(subTotal.textContent);
+
+            //calculating for discount...
+            discount.textContent = getDiscountedValue((+subTotal.textContent), 10);
+            discount.textContent = addDecimals(discount.textContent);
+
+            //calculating for grand total
+            grandTotal.textContent = ((+subTotal.textContent) - (+discount.textContent))
+            grandTotal.textContent = addDecimals(grandTotal.textContent);
+
+            // add element to the list
             wantList.appendChild(cardList[i]);
         }
     }
+}
+
+function getDiscountedValue(num, percent){
+    var discountedNum = (num/100) * percent;
+    return discountedNum;
+}
+
+
+function addDecimals(myString){
+    if((+myString)%1 == 0){
+        return myString + '.00';
+    }
+    return myString;
 }
 
 function renderWantList(){

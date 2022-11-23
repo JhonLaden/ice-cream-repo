@@ -59,6 +59,7 @@
                     <div class="card-body">
                         <div class="card-title">
                             <span class = "brand"> <?php echo $value['title']; ?></span>
+                            
                             <span class = "value">₱ <?php echo ($value['price']);
                             if($value['price'] % 1 == 0) echo ('.00');?>
                             </span>
@@ -140,23 +141,28 @@
                 <div class="total">
                     <div class="subtax-total">
                         <div class="subtax">
-                            <div class="flex-between mb-10">
+                            <div class="sub flex-between mb-10">
                                 <span class="text">Subtotal</span>
-                                <span class="value">₱190.00</span>
+                                <span class="value">₱ 0.00</span>
                             </div>
-                            <div class="flex-between mb-10">
+                            <div class="disc flex-between mb-10">
                                 <span class="text">Discount 10%</span>
-                                <span class="value">₱19.00</span>
+                                <span class="value">₱ 0.00</span>
                             </div>
                         </div>
                         <hr class = "divider-2">
-                        <div class="flex-between mb-10">
+                        <div class="grand-total flex-between mb-10">
                             <span class="text">Total</span>
-                            <span class="value">₱171.00</span>
+                            <span class="value">₱ 0.00</span>
                         </div>
                     </div>
                     <div class="place-order">
                         <button><span>Place Order</span></button>
+                    </div>
+                </div>
+                <div class="total-empty">
+                    <div class="text">
+                        <p>Add an Item</p>
                     </div>
                 </div>
                 
