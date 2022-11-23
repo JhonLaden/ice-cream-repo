@@ -1,9 +1,10 @@
 const itemElement = document.getElementsByClassName('item');
 const plus = document.getElementsByClassName('plus');
 const minus = document.getElementsByClassName('minus');
+var cardList = [];
 
-function getCardList(){
-    return document.getElementsByClassName('list-item');
+function getCloneList(){
+    return [...cardList];
 }
 
 
@@ -21,8 +22,9 @@ for (var i = 0; i < plus.length; i++){
 
 
         card.classList.add('active');   
-        updateWantList(card, true);
-        renderWantList();
+        addToList(card);
+        render();
+        setTimeout(removeAllanimation, 700);
     });
 }
 
@@ -43,21 +45,12 @@ for (var i = 0; i < minus.length; i++){
         }
         value.textContent = value_int;
 
-        updateWantList(card, false);
-        renderWantList();
+        deductFromList(card );
+        render();
     });
 }
 
-
-function updateWantList( card, isAdd){
-    const cardList = getCardList();
-    //details of the incremented card
-    var wantList = document.getElementsByClassName('want-list')[0];
-    const itemTitle = card.getElementsByClassName('brand')[0].textContent;
-    const itemCount = card.getElementsByClassName('item-count')[0].textContent;
-    const cardValue = card.getElementsByClassName('value')[0].textContent;
-
-    // creating tags
+function createCard(){
     var newCard = document.createElement('li')
     var icon = document.createElement('span');
     var want = document.createElement('div');
@@ -72,6 +65,7 @@ function updateWantList( card, isAdd){
     // adding class name
     newCard.classList.add('item');
     newCard.classList.add('animated-entrance');
+    newCard.classList.add('list-item');
     icon.classList.add('x-mark');
     icon.innerHTML = `<i class='bx bxs-trash icon'></i>`;
     want.classList.add('want-item');
@@ -95,6 +89,21 @@ function updateWantList( card, isAdd){
     newCard.appendChild(icon);
     newCard.appendChild(want);
 
+    
+
+    return newCard;
+}
+
+function addToList( card ){
+    //details of the incremented card
+    var wantList = document.getElementsByClassName('want-list')[0];
+    const itemTitle = card.getElementsByClassName('brand')[0].textContent;
+    const itemCount = card.getElementsByClassName('item-count')[0].textContent;
+    const cardValue = card.getElementsByClassName('value')[0].textContent;
+
+    // creating tags
+    var newCard = createCard();
+
     // adding value for each tag
     var newCardItemCounter = newCard.getElementsByClassName('item-counter')[0];
     var newCardItemName = newCard.getElementsByClassName('item-name')[0];
@@ -110,31 +119,48 @@ function updateWantList( card, isAdd){
 
 
 
-    if(validateDuplicateList(newCard) || cardList.length == 0 && isAdd){
+    if(indexDuplicate(newCard) == -1 || cardList.length == 0){
         cardList.push(newCard);
-    }else if(!validateDuplicateList(newCard) && !isAdd){
-        console.log('minus');
-        for(var i = 0; i< cardList.length; i++){
-            var cardListTitle = cardList[i].getElementsByClassName('item-name')[0];
-            var newCardTitle = newCard.getElementsByClassName('item-name')[0];
+    }else if(indexDuplicate(newCard) > -1){
+        cardList[indexDuplicate(newCard)].getElementsByClassName('quantity')[0].textContent = newCard.getElementsByClassName('quantity')[0].textContent;
+    }
+}
 
-            if(cardListTitle.textContent == newCardTitle.textContent){
-                cardList[i].getElementsByClassName('quantity')[0].textContent = newCardItemQuant.textContent;
-                break;
-            }
-        }
-    }else{
-        for(var i = 0; i< cardList.length; i++){
-            var cardListTitle = cardList[i].getElementsByClassName('item-name')[0];
-            var newCardTitle = newCard.getElementsByClassName('item-name')[0];
+function deductFromList(card){
+    var newCard = createCard();
 
-            if(cardListTitle.textContent == newCardTitle.textContent){
-                cardList[i].getElementsByClassName('quantity')[0].textContent = newCardItemQuant.textContent;
-                break;
-            }
+    //details of decremented card
+    var wantList = document.getElementsByClassName('want-list')[0];
+    const itemTitle = card.getElementsByClassName('brand')[0].textContent;
+    const itemCount = card.getElementsByClassName('item-count')[0].textContent;
+    const cardValue = card.getElementsByClassName('value')[0].textContent;
+
+    // adding value for each tag
+    var newCardItemCounter = newCard.getElementsByClassName('item-counter')[0];
+    var newCardItemName = newCard.getElementsByClassName('item-name')[0];
+    var newCardItemQuant = newCard.getElementsByClassName('quantity')[0];
+    var newCardPrice = newCard.getElementsByClassName('price')[0];
+
+
+    // assigning value to temp variables
+    newCardItemCounter.textContent = cardList.length+1;
+    newCardItemName.textContent = itemTitle;
+    newCardItemQuant.textContent = itemCount;
+    newCardPrice.textContent = (cardValue);
+
+    //check duplicate 
+    if(indexDuplicate(newCard) > -1){
+        var inDup = indexDuplicate(newCard);
+        cardList[indexDuplicate(newCard)].getElementsByClassName('quantity')[0].textContent = newCard.getElementsByClassName('quantity')[0].textContent;
+        if(cardList[indexDuplicate(newCard)].getElementsByClassName('quantity')[0].textContent == 0){
+            var val = cardList[indexDuplicate(newCard)];
+            cardList[indexDuplicate(newCard)].classList.add('fade-out');
+            setTimeout(function(){
+                cardList = removeItemOnce(cardList, val)
+                render();
+            }, 700);
         }
     }
-  
 }
 
 function render(){
@@ -145,22 +171,16 @@ function render(){
             wantList.appendChild(cardList[i]);
         }
     }
-    
 }
 
 function renderWantList(){
-    validateZero(cardList);
     var wantList = document.getElementsByClassName('want-list')[0];
 
     for(var i = 0; i < cardList.length; i++){
         var xButton = cardList[i].getElementsByClassName('x-mark')[0];
-        console.log(xButton.textContent);
-        xButton.addEventListener('click', function(event){
-            var xClicked = event.target;
-            xClicked.parentElement.parentElement.remove();
-            console.log(cardList.length);
+        xButton.addEventListener('click', function(){
+            cardList = removeItemOnce(cardList, cardList[i])
             render();
-            console.log(cardList.length);
         });
         wantList.appendChild(cardList[i]);
         setTimeout(removeAllanimation, 700)
@@ -171,29 +191,30 @@ function renderWantList(){
 function removeAllanimation(){
     for(var i = 0 ; i < cardList.length; i++){
         cardList[i].classList.remove('animated-entrance');
+        cardList[i].classList.remove('fade-out');
+
     }   
 }
 
-function validateDuplicateList(card){
+function indexDuplicate(card){
     var cardName = card.getElementsByClassName('item-name')[0];
     for(var i = 0; i < cardList.length; i++){
         var cardItem = cardList[i].getElementsByClassName('item-name')[0];
 
         if(cardName.textContent == cardItem.textContent){
-            return false;
+            return i;
         }
     }
-    return true;
+    return -1;
 }
 
 function validateZero(arr){
     for (var i = 0; i < arr.length; i++){
         var quantity = arr[i].getElementsByClassName('quantity')[0];
         if(quantity.textContent == 0){
-            // fadeOut(i);
+            fadeOut(i);
             arr = removeItemOnce(arr, arr[i]);
             render();
-            
         }
     }
 }

@@ -114,7 +114,7 @@
         <div class="list-total">
             <div class="list-container">
                 <ul class="want-list">
-                    <!-- <li hidden class="item">
+                    <!-- <li hidden class="item list-item">
                         <span class="x-mark">
                             <i class='bx bxs-trash icon'></i>
                         </span>
