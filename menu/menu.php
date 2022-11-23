@@ -160,11 +160,11 @@
                         <button><span>Place Order</span></button>
                     </div>
                 </div>
-                <div class="total-empty">
+                <!-- <div class="total-empty">
                     <div class="text">
                         <p>Add an Item</p>
                     </div>
-                </div>
+                </div> -->
                 
             </div>
         </div>
