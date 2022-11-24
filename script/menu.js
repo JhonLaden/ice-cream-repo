@@ -3,10 +3,7 @@ const plus = document.getElementsByClassName('plus');
 const minus = document.getElementsByClassName('minus');
 var cardList = [];
 
-function getCloneList(){
-    return [...cardList];
-}
-
+doDisplay(false);
 
 for (var i = 0; i < plus.length; i++){
     var plusbtn = plus[i];
@@ -201,6 +198,7 @@ function render(){
 
     //if array is not empty
     if(cardList.length > 0){
+        doDisplay(true);
         for(var i = 0; i < cardList.length; i++){
             //every iteration should remove peso sign for the card
             cardList[i].getElementsByClassName('item-counter')[0].textContent = (i+1);
@@ -226,7 +224,10 @@ function render(){
             // add element to the list
             wantList.appendChild(cardList[i]);
         }
+    }else{
+        doDisplay(false);
     }
+
 }
 
 function getDiscountedValue(num, percent){
@@ -300,3 +301,40 @@ function removeItemOnce(arr, value) {
     }
     return arr;
   }
+
+function doDisplay(bool){
+    const listContainer = document.getElementsByClassName('list-container')[0];
+    const totalContainer = document.getElementsByClassName('total-container')[0];
+    const subtax = document.getElementsByClassName('subtax-total')[0];
+    const total = document.getElementsByClassName('total')[0];
+    console.log(total);
+    const placeOrder = document.getElementsByClassName('place-order')[0];
+    const dialog = document.getElementsByClassName('dialog')[0];
+
+    if(!bool){
+        listContainer.classList.add('d-none');
+        totalContainer.style =  "min-height: 85vh";
+        subtax.classList.add('d-none');
+        placeOrder.classList.add('d-none');
+        dialog.classList.add('d-block');
+        dialog.classList.remove('d-none');
+        
+        // centering the dialog
+        total.classList.add('d-flex');
+        total.classList.add('flex-justify-center');
+        total.classList.add('flex-align-center');
+    }else{
+        listContainer.classList.remove('d-none');
+        totalContainer.style =  "min-height: 40vh";
+        subtax.classList.remove('d-none');
+        placeOrder.classList.remove('d-none');
+        dialog.classList.remove('d-block');
+
+        // centering the dialog
+        total.classList.remove('d-flex');
+        total.classList.remove('flex-justify-center');
+        total.classList.remove('flex-align-center');
+
+        dialog.classList.add('d-none');
+    }
+}

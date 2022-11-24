@@ -159,12 +159,10 @@
                     <div class="place-order">
                         <button><span>Place Order</span></button>
                     </div>
+                    <span class="dialog">
+                        <p class="text">Select an item to add</p>
+                    </span>
                 </div>
-                <!-- <div class="total-empty">
-                    <div class="text">
-                        <p>Add an Item</p>
-                    </div>
-                </div> -->
                 
             </div>
         </div>

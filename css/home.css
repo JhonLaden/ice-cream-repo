@@ -526,6 +526,7 @@ a{
 
 .sidebar-right .list-total .total-container{
     min-height: 40vh;
+    transition: var(--trans-4);
 }
 
 .sidebar-right .list-total .total-container .total{
@@ -539,9 +540,32 @@ a{
 .mb-10{
     margin-bottom: 10px;
 }
+
+.d-none{
+    display: none;
+}
+.d-block{
+    display: block;
+}
 .flex-between{
     display: flex;
     justify-content: space-between;
+}
+.d-flex{
+    display: flex;
+}
+.flex-justify-center{
+    justify-content: center;
+}
+.flex-align-center{
+    align-items: center;
+}
+.vh-85{
+    height: 85vh;
+}
+
+.dialog .text{
+    font-size: 1.5rem;
 }
 
 
