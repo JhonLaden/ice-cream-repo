@@ -7,6 +7,7 @@
     require_once '../database/categories.php';
     require_once '../database/items.php';
     
+    require_once '../classes/category.class.php';
 ?>
 
 
@@ -21,6 +22,12 @@
 
             <?php
                 $counter =1 ;
+                $category_obj = new Category();
+
+                foreach($category_obj->show() as $value){
+                    echo ($value['name']);
+                }
+      
                 foreach($category as $key => $value){
                     echo '<div class="card card-'.$counter.'">
                             <div class="card-header">
@@ -139,7 +146,7 @@
                     <div class="subtax-total">
                         <div class="subtax">
                             <div class="sub flex-between mb-10 ">
-                                <span class="text trans-05">Subtotal</span>
+                                <span class="text">Subtotal</span>
                                 <span class="value">₱ 0.00</span>
                             </div>
                             <div class="disc flex-between mb-10">

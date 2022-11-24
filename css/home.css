@@ -526,7 +526,7 @@ a{
 
 .sidebar-right .list-total .total-container{
     min-height: 40vh;
-    transition: var(--trans-4);
+    transition: all 0.8s ease;
 }
 
 .sidebar-right .list-total .total-container .total{
