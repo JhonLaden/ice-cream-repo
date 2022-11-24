@@ -567,6 +567,11 @@ a{
 .dialog .text{
     font-size: 1.5rem;
 }
+.dummy-element{
+    opacity: 0;
+    height: 0;
+
+}
 
 
 .minus-plus .minus,

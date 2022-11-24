@@ -113,6 +113,8 @@
             </span>
         </div>
         <div class="list-total">
+            <span class="dummy-element">sdf</span>
+
             <div class="list-container">
                 <ul class="want-list">
                     <!-- <li hidden class="item list-item">
@@ -129,20 +131,15 @@
                                 <div class="price">₱25.00</div>
                              </div>
                         </div>
-                    </li> -->
-
-                    
-
-                    
-                    
+                    </li> -->  
             </div>
 
             <div class="total-container">
                 <div class="total">
                     <div class="subtax-total">
                         <div class="subtax">
-                            <div class="sub flex-between mb-10">
-                                <span class="text">Subtotal</span>
+                            <div class="sub flex-between mb-10 ">
+                                <span class="text trans-05">Subtotal</span>
                                 <span class="value">₱ 0.00</span>
                             </div>
                             <div class="disc flex-between mb-10">

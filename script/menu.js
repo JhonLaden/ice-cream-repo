@@ -183,11 +183,6 @@ function render(){
     var discount = document.querySelectorAll('.subtax-total .disc .value')[0];
     var grandTotal = document.querySelectorAll('.subtax-total .grand-total .value')[0];
     
-    // removing peso sign because of my stupidity
-    subTotal.textContent = subTotal.textContent.replace('₱', '');
-    discount.textContent = discount.textContent.replace('₱', '');
-    grandTotal.textContent = grandTotal.textContent.replace('₱', '');
-
     // initializing
     subTotal.textContent = '0.00';
     discount.textContent = '0.00';
@@ -208,6 +203,11 @@ function render(){
             var cardPrice = cardList[i].getElementsByClassName('price')[0].textContent.replace('₱','');
             var cardQuantity = cardList[i].getElementsByClassName('quantity')[0].textContent;
 
+            // removing peso sign because of my stupidity
+            subTotal.textContent = subTotal.textContent.replace('₱', '');
+            discount.textContent = discount.textContent.replace('₱', '');
+            grandTotal.textContent = grandTotal.textContent.replace('₱', '');
+
 
             //calculating subtotal...
             subTotal.textContent = (+subTotal.textContent) + ((+cardPrice) * (+cardQuantity));
@@ -220,6 +220,11 @@ function render(){
             //calculating for grand total
             grandTotal.textContent = ((+subTotal.textContent) - (+discount.textContent))
             grandTotal.textContent = addDecimals(grandTotal.textContent);
+
+            // adding peso sign
+            subTotal.textContent = "₱ " + subTotal.textContent;
+            discount.textContent = "₱ " + discount.textContent;
+            grandTotal.textContent = "₱ " + grandTotal.textContent;
 
             // add element to the list
             wantList.appendChild(cardList[i]);
@@ -241,21 +246,6 @@ function addDecimals(myString){
         return myString + '.00';
     }
     return myString;
-}
-
-function renderWantList(){
-    var wantList = document.getElementsByClassName('want-list')[0];
-
-    for(var i = 0; i < cardList.length; i++){
-        var xButton = cardList[i].getElementsByClassName('x-mark')[0];
-        xButton.addEventListener('click', function(){
-            cardList = removeItemOnce(cardList, cardList[i])
-            render();
-        });
-        wantList.appendChild(cardList[i]);
-        setTimeout(removeAllanimation, 700)
-    }
-
 }
 
 function removeAllanimation(){
@@ -291,7 +281,6 @@ function validateZero(arr){
 
 function fadeOut(i){
     cardList[i].classList.add('fade-out');
-
 }
 
 function removeItemOnce(arr, value) {
@@ -307,9 +296,9 @@ function doDisplay(bool){
     const totalContainer = document.getElementsByClassName('total-container')[0];
     const subtax = document.getElementsByClassName('subtax-total')[0];
     const total = document.getElementsByClassName('total')[0];
-    console.log(total);
     const placeOrder = document.getElementsByClassName('place-order')[0];
     const dialog = document.getElementsByClassName('dialog')[0];
+    const dummyEl = document.getElementsByClassName('dummy-element')[0];
 
     if(!bool){
         listContainer.classList.add('d-none');
@@ -318,6 +307,7 @@ function doDisplay(bool){
         placeOrder.classList.add('d-none');
         dialog.classList.add('d-block');
         dialog.classList.remove('d-none');
+        dummyEl.classList.add('d-block');
         
         // centering the dialog
         total.classList.add('d-flex');
@@ -329,6 +319,10 @@ function doDisplay(bool){
         subtax.classList.remove('d-none');
         placeOrder.classList.remove('d-none');
         dialog.classList.remove('d-block');
+        dummyEl.classList.remove('d-block');
+        dummyEl.classList.add('d-none');
+
+
 
         // centering the dialog
         total.classList.remove('d-flex');
