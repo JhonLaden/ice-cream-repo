@@ -51,6 +51,7 @@ ul.navbar-list{
 }
 a{
     text-decoration: none;
+    color: none
 }
 
 /* sidebar */
@@ -167,6 +168,7 @@ a{
     flex-direction: column;
     border-radius: 7px;
     transition: var(--trans-3);
+    color: black;
 }
 
 .menu .menu-body .sorting-cards .card{
@@ -219,9 +221,7 @@ a{
     align-content: space-between;
 }
 
-
-.menu .menu-body .menu-items .card:before{
-    content: "";
+.menu .menu-body .menu-items .card .background-card{
     position: absolute;
     height: 100%;
     width: 5%;
@@ -231,7 +231,7 @@ a{
     transition: var(--trans-5);
 }
 
-.menu .menu-body .menu-items .active:before{
+.menu .menu-body .menu-items .card.active .background-card{
     width: 100%;
 }
 

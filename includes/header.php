@@ -9,6 +9,7 @@
     <link rel = "stylesheet" href = "../css/home.css">
     <link rel = "stylesheet" href = "../css/circles.css">
     <link rel = "stylesheet" href = "../css/media.css">
+    <link rel = "stylesheet" href = "../css/cards.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     
     <title>Menu</title>

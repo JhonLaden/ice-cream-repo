@@ -8,7 +8,10 @@
     require_once '../database/items.php';
     
     require_once '../classes/category.class.php';
+    require_once '../classes/item.class.php';
+    
 ?>
+
 
 
     <div class = "main">
@@ -21,62 +24,65 @@
         <div class="sorting-cards">
 
             <?php
-                $counter =1 ;
                 $category_obj = new Category();
 
                 foreach($category_obj->show() as $value){
-                    echo ($value['name']);
+                ?>
+                         <a href = "menu.php?id=<?php echo $value['id']; ?>" class="card category-card" style = "background-color: <?php echo $value['color']?>">
+                                <div class="card-header">
+                                    <?php echo $value['icon'] ?>
+                                </div>
+                                <div class="card-body">
+                                    <span class = "card-title" > <?php echo $value['name'] ?> </span>
+                                    <span class = "item-num text" ><?php echo $value ['quantity'] ?> Items</span>
+                                </div>
+                        </a>
+                     
+                <?php
                 }
-      
-                foreach($category as $key => $value){
-                    echo '<div class="card card-'.$counter.'">
-                            <div class="card-header">
-                                '. $value['icon'].'
-                            </div>
-                            <div class="card-body">
-                                <span class = "card-title" >'.$value['title'] .'</span>
-                                <span class = "item-num text" >'.$value ['number'] .'</span>
-                            </div>
-                        </div>';
-                    $counter = $counter + 1;
-                }
-            ?>     
+                ?>      
         </div>
 
         <hr class = "divider">
 
         <div class="menu-items" >
             <?php
-                foreach($item as $key => $value){
+                $item = new Item();
+                $id = 1;
+                if(isset($_GET['id'])){
+                    $id = $_GET['id'];
+                }
+                foreach($item->selectId($id) as $value){
             ?>
                 <div class="card item
             <?php
-                if($value['number'] > 0){
+                if($value['quantity'] > 0){
             ?>
                     active
             <?php
-                }
+                }   
             ?>
                 ">
+                <div class="background-card"></div>
                     <div class="card-header text">
-                        <span> Orders 
-                        <i class="bx bx-right-arrow-alt "></i> Kitchen 
+                        <span> Category 
+                        <i class="bx bx-right-arrow-alt "></i><?php echo $item->selectCategoryName($id)[0]?> 
                         <span>
                     </div>
                     <div class="card-body">
                         <div class="card-title">
-                            <span class = "brand"> <?php echo $value['title']; ?></span>
+                            <span class = "brand"> <?php echo $value['name']; ?></span>
                             
                             <span class = "value">₱ <?php echo ($value['price']);
                             if($value['price'] % 1 == 0) echo ('.00');?>
                             </span>
-                    </div>
                         
-                </div>
+                        </div>
+                    </div>
                     <div class="card-footer">
                         <span class = "minus-plus">
                             <i class="bx bx-minus minus-icon icon minus" ></i>
-                            <span class = "item-count"><?php echo $value['number'] ?></span>
+                            <span class = "item-count"><?php echo $value['quantity'] ?></span>
                             <i class="bx bx-plus icon plus"></i>
                         </span>
                     </div>
@@ -173,8 +179,7 @@
         
     <section>
     <div >
-
-    <script src = "../script/menu.js" > </script>
+    <script src = "../script/menu.js" ></script>
 
 </body>
 </html>

@@ -1,0 +1,39 @@
+.body-main{
+    height: 100%;
+    width: 100%;
+}
+
+.body-main .card-container{
+    height: 18%;
+    width: 100%;
+}
+
+.dashboard-card {
+    border-radius: 5px;
+}
+
+.dashboard-card{
+    height: 100%;
+    width: 20%;
+    margin-right: 10%;
+}
+
+.card-brand{
+    color: var(--text-light);
+    font-weight: bolder;
+}
+
+.card-body{
+    height: 100%;
+    width: 100%;
+}
+
+.details{
+    height: 100%;
+}
+
+
+
+
+
+

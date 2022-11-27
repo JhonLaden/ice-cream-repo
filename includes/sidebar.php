@@ -11,16 +11,16 @@
                         <a href="../admin/dashboard.php" class="navbar-link <?php echo $dashboard ?>">Dashboard</a>
                     </li>
                     <li class = "navbar-item">
-                        <a href="#" class="navbar-link">Table Services</a>
+                        <a href="../items/items.php" class="navbar-link <?php echo $items ?>">Items</a>
                     </li>
                     <li class = "navbar-item">
                         <a href="../menu/menu.php" class="navbar-link <?php echo $menu;?>">Menu</a>
                     </li>
                     <li class = "navbar-item">
-                        <a href="#" class="navbar-link">Delivery</a>
+                        <a href="#" class="navbar-link">Accounts</a>
                     </li>
                     <li class = "navbar-item">
-                        <a href="#" class="navbar-link">Accounting</a>
+                        <a href="#" class="navbar-link">Purchased History</a>
                     </li>
                     <li class = "navbar-item logout">
                         <a href="../login/logout.php" class="navbar-link">Logout</a>

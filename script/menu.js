@@ -1,9 +1,57 @@
-const itemElement = document.getElementsByClassName('item');
+const itemElement = document.getElementsByClassName('.item');
 const plus = document.getElementsByClassName('plus');
 const minus = document.getElementsByClassName('minus');
 var cardList = [];
+var isRefresh_var = true;
+
+const wantList1 = document.getElementsByClassName('want-list')[0];
+const list1 = wantList1.getElementsByClassName('list-item');
 
 doDisplay(false);
+
+// function test(){
+//     window.localStorage.setItem('item', itemElement.outerHTML);
+//     var el = window.localStorage.getItem('item');
+//     var doc = new DOMParser().parseFromString(el, "text/xml");
+//     console.log(doc.getElementsByClassName('background-card')[0]);
+// }
+
+// test();
+
+// window.localStorage.clear();
+
+if(window.localStorage.getItem('cardStorage')){
+    extract();
+    render();   
+}else{
+    console.log('empty');
+}
+
+function isRefresh(){
+    return isRefresh_var;
+}
+
+function store(){
+    var stringList = [];
+    for (var i = 0; i < cardList.length; i++){
+        stringList.push(cardList[i].outerHTML);
+    }
+    window.localStorage.setItem('cardStorage', JSON.stringify(stringList));
+}
+
+function extract(){
+    var stringList = [];
+    stringList = JSON.parse(window.localStorage.getItem('cardStorage'));
+    for (var i = 0; i < stringList.length; i++){
+        var doc = new DOMParser().parseFromString(stringList[i], "text/xml");
+        cardList.push(doc.firstChild);
+        
+    }
+    render();
+}
+
+
+
 
 for (var i = 0; i < plus.length; i++){
     var plusbtn = plus[i];
@@ -22,6 +70,8 @@ for (var i = 0; i < plus.length; i++){
         addToList(card);
         render();
         setTimeout(removeAllanimation, 700);
+
+
     });
 }
 
@@ -91,6 +141,8 @@ function createCard(){
 }
 
 function addToList( card ){
+    isRefresh_var = false;
+
     //details of the incremented card
     var wantList = document.getElementsByClassName('want-list')[0];
     const itemTitle = card.getElementsByClassName('brand')[0].textContent;
@@ -135,6 +187,7 @@ function addToList( card ){
 }
 
 function deductFromList(card){
+    isRefresh_var = false;
     var newCard = createCard();
 
     //details of decremented card
@@ -228,13 +281,15 @@ function render(){
 
             // add element to the list
             wantList.appendChild(cardList[i]);
+
         }
     }else{
         doDisplay(false);
     }
+    store();
 
 }
-
+ 
 function getDiscountedValue(num, percent){
     var discountedNum = (num/100) * percent;
     return discountedNum;
