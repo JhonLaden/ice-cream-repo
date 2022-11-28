@@ -1,11 +1,61 @@
 <?php
 
+function validate_first_name($POST){
+    if(!isset($POST['fn'])){
+        return false;
+    }else if(strlen(trim($POST['fn']))<1){
+        return false;
+
+    }else if($POST['fn'][0] == " "){
+        return false;
+    }
+    return true;
+}
+function validate_last_name($POST){
+    if(!isset($POST['ln'])){
+        return false;
+    }else if(strlen(trim($POST['ln']))<1){
+        return false;
+    }else if($POST['ln'][0] == " "){
+        return false;
+    }
+    return true;
+}
+
 function validate_item_name($POST){
     if(!isset($POST['itemName'])){
         return false;
     }else if(strlen(trim($POST['itemName']))<1){
         return false;
     }else if($POST['itemName'][0] == " "){
+        return false;
+    }
+    return true;
+}
+function validate_username($POST){
+    if(!isset($POST['username'])){
+        return false;
+    }else if(strlen(trim($POST['username']))<1){
+        return false;
+    }else if($POST['username'][0] == " "){
+        return false;
+    }
+    return true;
+}
+function validate_password($POST){
+    if(!isset($POST['password'])){
+        return false;
+    }else if(strlen(trim($POST['password']))<1){
+        return false;
+    }else if($POST['password'][0] == " "){
+        return false;
+    }
+    return true;
+}
+function validate_type($POST){
+    if(!isset($POST['type'])){
+        return false;
+    }else if(strcmp($POST['type'], 'None') == 0){
         return false;
     }
     return true;
@@ -65,6 +115,12 @@ function validate_category($POST){
 
 function validate_add_item($POST){
     if(!validate_item_name($POST)  || !validate_category($POST) ){
+        return false;
+     }
+    return true;
+}
+function validate_add_user($POST){
+    if(!validate_first_name($POST)  || !validate_last_name($POST) || !validate_username($POST) || !validate_password($POST) || !validate_email($POST) ){
         return false;
      }
     return true;

@@ -35,9 +35,14 @@
                             <a href="items.php" class="clear">Clear Search</a>
                         </button>
                     </form>
-                    <a href="addItem.php" class="add-button">
-                        <span class = "text"> Add Button </span>
-                    </a>
+                    <?php
+                    if ($_SESSION['logged-in']['type'] == "Admin"){?>
+                        <a href="addItem.php" class="add-button">
+                            <span class = "text"> Add Button </span>
+                        </a>
+                    <?php 
+                    }
+                    ?>
                 </div>
                 <table class = "styled-table ">
                 </div>
@@ -51,7 +56,12 @@
                         <th>Category</th>
                         <th>Created on</th>
                         <th>Updated on</th>
-                        <th>Action</th>
+                        <?php
+                        if($_SESSION['logged-in']['type'] == "Admin"){ ?>
+                            <th>Action</th>
+                        <?php
+                        }
+                        ?>
 
                     </tr>
                     <?php
@@ -67,10 +77,16 @@
                                     <td><?php echo $value['category']?></td>
                                     <td><?php echo $value['created_at']?></td>
                                     <td><?php echo $value['updated_at']?></td>
-                                    <td class = "action" > 
-                                        <a class = "grass" href = "editItem.php?id=<?php echo $value['id']?>">Edit</a> 
-                                        <a href = "items.php?id=<?php echo $value['id']?>" class = "danger" > Delete<a>
-                                    </td>
+                                    <?php
+                                        if($_SESSION['logged-in']['type'] == "Admin"){?>
+                                         <td class = "action" > 
+                                            <a class = "grass" href = "editItem.php?id=<?php echo $value['id']?>">Edit</a> 
+                                            <a href = "items.php?id=<?php echo $value['id']?>" class = "danger" > Delete<a>
+                                        </td>
+                                        <?php
+                                    }
+                                    ?>
+                                   
                                 </tr>
                         <?php
                             }
@@ -84,10 +100,15 @@
                             <td><?php echo $value['category']?></td>
                             <td><?php echo $value['created_at']?></td>
                             <td><?php echo $value['updated_at']?></td>
-                            <td class = "action" > 
-                                <a class = "grass" href = "editItem.php?id=<?php echo $value['id']?>">Edit</a> 
-                                <a class = "danger" href = "items.php?id=<?php echo $value['id']?> " > Delete<a>
-                             </td> 
+                            <?php
+                            if($_SESSION['logged-in']['type'] == "Admin"){?>
+                                <td class = "action" > 
+                                    <a class = "grass" href = "editItem.php?id=<?php echo $value['id']?>">Edit</a> 
+                                    <a class = "danger" href = "items.php?id=<?php echo $value['id']?> " > Delete<a>
+                                </td> 
+                            <?php
+                            }
+                            ?>
 
                         </tr>
                     <?php
