@@ -20,9 +20,9 @@ class Item{
         (:name, :price, :category);";
 
         $query = $this->db->connect()->prepare($sql);
-        $query->bindParam(':name', $this->firstname);
-        $query->bindParam(':price', $this->lastname);
-        $query->bindParam(':category', $this->email);
+        $query->bindParam(':name', $this->name);
+        $query->bindParam(':price', $this->price);
+        $query->bindParam(':category', $this->category);
 
         if($query->execute()){
             return true;

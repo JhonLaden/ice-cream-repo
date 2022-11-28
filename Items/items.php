@@ -82,7 +82,10 @@
                             <td><?php echo $value['category']?></td>
                             <td><?php echo $value['created_at']?></td>
                             <td><?php echo $value['updated_at']?></td>
-                            <td class = "action" > <a class = "grass" href = "#">Edit</a> <a href = "#" class = "danger" > Delete<a></td>
+                            <td class = "action" > 
+                                <a class = "grass" href = "#">Edit</a> 
+                                <a class = "danger" href = "#"  > Delete<a>
+                             </td>
 
                         </tr>
                     <?php

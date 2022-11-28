@@ -1,9 +1,9 @@
 <?php
 
 function validate_item_name($POST){
-    if(!isset($POST['fn'])){
+    if(!isset($POST['itemName'])){
         return false;
-    }else if(strlen(trim($POST['fn']))<1){
+    }else if(strlen(trim($POST['itemName']))<1){
         return false;
     }
     return true;

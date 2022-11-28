@@ -24,7 +24,7 @@
         if(validate_add_item($_POST)){
             if($item->add_item()){  
                 //redirect user to faculty page after saving
-                header('location: addfaculty.php');
+                header('location: items.php');
             }
         }
     }
@@ -45,7 +45,7 @@
                     <label for="itemName">Name of Item:</label><br>
                     <input type="text" id="itemName" name="itemName" placeholder = "Enter Item name" value = "<?php if(isset($_POST['itemName'])) { echo $_POST['itemName']; } ?>"> 
                     <?php
-                    if(isset($_POST['itemName']) && !validate_add_item($_POST['save'])){ ?>
+                    if(isset($_POST['itemName']) && validate_item_name($_POST['save'])){ ?>
                          <p class="error">Invalid item name</p> 
                     <?php 
                     }else{
@@ -61,15 +61,15 @@
 
                     <label for="category">category:</label><br>
                         <select id="category" name="category">
-                            <option value="category" <?php if(isset($_POST['rank'])) { if ($_POST['category'] == 'None') echo ' selected="selected"'; } ?>>Select</option>
-                            <option value="Dessert" <?php if(isset($_POST['category'])) { if ($_POST['category'] == 'Dessert') echo ' selected="selected"'; } ?> >Dessert</option>
-                            <option value="Popsicle" <?php if(isset($_POST['category'])) { if ($_POST['category'] == 'Popsicle') echo ' selected="selected"'; } ?> >Popsicle</option>
-                            <option value="Sundae" <?php if(isset($_POST['category'])) { if ($_POST['category'] == 'Sundae') echo ' selected="selected"'; } ?> >Sundae</option>
-                            <option value="Breakfast" <?php if(isset($_POST['category'])) { if ($_POST['category'] == 'Breakfast') echo ' selected="selected"'; } ?> >Breakfast</option>
-                            <option value="Cup" <?php if(isset($_POST['category'])) { if ($_POST['category'] == 'Cup') echo ' selected="selected"'; } ?> >Cup</option>
-                            <option value="Scoops" <?php if(isset($_POST['category'])) { if ($_POST['category'] == 'Scoops') echo ' selected="selected"'; } ?> >Scoops</option>
-                            <option value="Bar" <?php if(isset($_POST['category'])) { if ($_POST['category'] == 'NoBarne') echo ' selected="selected"'; } ?> >Bar</option>
-                            <option value="Cone" <?php if(isset($_POST['category'])) { if ($_POST['category'] == 'Cone') echo ' selected="selected"'; } ?> >Cone</option>
+                            <option value="None" <?php if(isset($_POST['rank'])) { if ($_POST['category'] == 'None') echo ' selected'; } ?>>Select</option>
+                            <option value="1" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '1') echo ' selected'; } ?> >Dessert</option>
+                            <option value="2" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '2') echo ' selected'; } ?> >Popsicle</option>
+                            <option value="3" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '3') echo ' selected'; } ?> >Sundae</option>
+                            <option value="4" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '4') echo ' selected'; } ?> >Breakfast</option>
+                            <option value="5" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '5') echo ' selected'; } ?> >Cup</option>
+                            <option value="6" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '6') echo ' selected'; } ?> >Scoops</option>
+                            <option value="7" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '7') echo ' selected'; } ?> >Bar</option>
+                            <option value="8" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '8') echo ' selected'; } ?> >Cone</option>
                         </select>
                     <input type="submit" class="button" value="Save item" name="save" id="save">
                 </form>
