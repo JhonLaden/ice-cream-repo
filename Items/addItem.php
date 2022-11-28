@@ -45,7 +45,7 @@
                     <label for="itemName">Name of Item:</label><br>
                     <input type="text" id="itemName" name="itemName" placeholder = "Enter Item name" value = "<?php if(isset($_POST['itemName'])) { echo $_POST['itemName']; } ?>"> 
                     <?php
-                    if(isset($_POST['itemName']) && validate_item_name($_POST['save'])){ ?>
+                    if(isset($_POST['itemName']) && !validate_item_name($_POST['save'])){ ?>
                          <p class="error">Invalid item name</p> 
                     <?php 
                     }else{
@@ -62,14 +62,14 @@
                     <label for="category">category:</label><br>
                         <select id="category" name="category">
                             <option value="None" <?php if(isset($_POST['rank'])) { if ($_POST['category'] == 'None') echo ' selected'; } ?>>Select</option>
-                            <option value="1" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '1') echo ' selected'; } ?> >Dessert</option>
-                            <option value="2" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '2') echo ' selected'; } ?> >Popsicle</option>
-                            <option value="3" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '3') echo ' selected'; } ?> >Sundae</option>
-                            <option value="4" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '4') echo ' selected'; } ?> >Breakfast</option>
-                            <option value="5" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '5') echo ' selected'; } ?> >Cup</option>
-                            <option value="6" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '6') echo ' selected'; } ?> >Scoops</option>
-                            <option value="7" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '7') echo ' selected'; } ?> >Bar</option>
-                            <option value="8" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '8') echo ' selected'; } ?> >Cone</option>
+                            <option value="1" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '1') echo 'selected'; } ?> >Dessert</option>
+                            <option value="2" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '2') echo 'selected'; } ?> >Popsicle</option>
+                            <option value="3" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '3') echo ' elected'; } ?> >Sundae</option>
+                            <option value="4" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '4') echo 'selected'; } ?> >Breakfast</option>
+                            <option value="5" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '5') echo 'selected'; } ?> >Cup</option>
+                            <option value="6" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '6') echo 'selected'; } ?> >Scoops</option>
+                            <option value="7" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '7') echo 'selected'; } ?> >Bar</option>
+                            <option value="8" <?php if(isset($_POST['category'])) { if ($_POST['category'] == '8') echo 'selected'; } ?> >Cone</option>
                         </select>
                     <input type="submit" class="button" value="Save item" name="save" id="save">
                 </form>

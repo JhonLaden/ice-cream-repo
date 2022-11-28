@@ -5,6 +5,8 @@ function validate_item_name($POST){
         return false;
     }else if(strlen(trim($POST['itemName']))<1){
         return false;
+    }else if($POST['itemName'][0] == " "){
+        return false;
     }
     return true;
 }
