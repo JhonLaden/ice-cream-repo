@@ -578,3 +578,7 @@ a{
 .minus-plus .plus{
     cursor: pointer;
 }
+
+.light{
+    color: var(--text-light);
+}

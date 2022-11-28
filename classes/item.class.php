@@ -3,11 +3,11 @@
 require_once 'database.php';
 
 class Item{
-    private $id;
-    private $name;
-    private $quantity;
-    private $price; 
-    private $category;
+    public $id;
+    public $name;
+    public $quantity;
+    public $price; 
+    public $category;
 
     protected $db ;
 
@@ -15,8 +15,42 @@ class Item{
         $this->db = new Database();
     }
 
+    function add_item(){
+        $sql = "INSERT INTO items (name, price, category) VALUE 
+        (:name, :price, :category);";
+
+        $query = $this->db->connect()->prepare($sql);
+        $query->bindParam(':name', $this->firstname);
+        $query->bindParam(':price', $this->lastname);
+        $query->bindParam(':category', $this->email);
+
+        if($query->execute()){
+            return true;
+        }else{
+            false;
+        }
+    }
+
     function show(){
-        $sql = "SELECT * FROM items;";
+        $sql = "SELECT * FROM items ORDER BY name;";
+        $query = $this->db->connect()->prepare($sql);
+
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+    function show_with_category(){
+        $sql = "SELECT items.name, items.price, categories.name as category,date(items.created_at) as created_at, date(items.updated_at) as updated_at FROM items JOIN categories ON items.category = categories.id ORDER BY items.name;";
+        $query = $this->db->connect()->prepare($sql);
+
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+    function show_selected_name($name){
+        $sql = "SELECT items.name, items.price, categories.name as category,date(items.created_at) as created_at, date(items.updated_at) as updated_at FROM items JOIN categories ON items.category = categories.id WHERE items.name = '$name' ORDER BY items.name;";
         $query = $this->db->connect()->prepare($sql);
 
         if($query->execute()){
@@ -33,6 +67,7 @@ class Item{
         }
         return $data;
     }
+    
 
     function selectCategoryColor($id){
         $sql = "SELECT name FROM categories WHERE id = $id;";

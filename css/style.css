@@ -209,6 +209,10 @@ input:-webkit-autofill:active {
     font-size: 1.2rem;
 }
 
+.bg-dark{
+    background-color: #303030;
+}
+
 .dirty-white2{
     color: var(--dirty-white-2);
 }
@@ -229,10 +233,23 @@ input:-webkit-autofill:active {
     color: #c2e9de;
 }
 
+.grass{
+    color: green;
+    
+}
+
+.danger{
+    color: crimson;
+    
+}
+
 .bg-light-pink{
     background-color: #fac1d9;
 }
 
+.bolder{
+    font-weight: bolder;
+}
 
 
 .mb-50{
@@ -249,4 +266,55 @@ input:-webkit-autofill:active {
     margin-right: 20px;
 }
 
+table, th, tr, td{
+    border-collapse: collapse;
+}
+
+th,tr, td{
+    padding: 2px 20px;
+}
+
+tr{
+    position:relative;
+}
+
+td{
+    color: #888a8c;
+}
+
+
+
+tbody tr:nth-child(odd){
+    background-color: #2d2d2d;
+  }
+
+table{
+    table-layout: fixed;
+  }
+  tbody{
+        display: block;
+      overflow: auto;
+  }
+
+.scrollit{
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.table-container .styled-table tr th{
+    color: black;
+    font-weight: bolder;
+    text-align: left;
+}
+
+
+.error{
+    color: #c51244;
+    line-height: 20px;
+    padding-top: 8px;
+}
+
+.table-container .wrapper{
+    width: fit-content;
+}
 
