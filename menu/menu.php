@@ -8,8 +8,7 @@
     require_once '../database/items.php';
     
     require_once '../classes/category.class.php';
-    require_once '../classes/item.class.php';
-    
+    require_once '../classes/item.class.php';  
 ?>
 
 

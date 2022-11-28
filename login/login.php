@@ -1,29 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel = "stylesheet" href = "../css/style.css">
-    <link rel = "stylesheet" href = "../css/circles.css">
-    <title>ice cream</title>
-</head>
+<?php
+    require_once '../includes/header.php';
+    require_once '../classes/user.class.php';
+    session_start();
+
+?>
 <body>
 
     <?php
-        $accountList = array(
-            array(
-                'username' => 'jhon',
-                'password' => 'jhon',
-                'rank' => 'admin'
-            ),
-            array(
-                'username' => 'isaac',
-                'password' => 'isaac',
-                'rank' => 'staff'
-            )
-        );
+
+        $user = new User();
+
         $error = '';
         if(isset($_POST['login-submit'])){
                 if(isset($_POST['username']) && isset($_POST['password'])){
@@ -31,10 +17,11 @@
                     $inputtedPassword = $_POST['password'];
                     $inputtedUsername = htmlentities($inputtedUsername);
                     $inputtedPassword = htmlentities($inputtedPassword);
-                    foreach($accountList as $key => $value){
+                    foreach($user->show() as $key => $value){
                         if($value['username'] == $inputtedUsername && $value['password'] == $inputtedPassword){
                             $_SESSION['logged-in'] = $value;
-                            header('location: ../admin/dashboard.php');
+
+                             header('location: ../admin/dashboard.php');
                         }else{
                             $error = 'wrong username or password';
                         }

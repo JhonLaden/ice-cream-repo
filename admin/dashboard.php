@@ -4,20 +4,22 @@
     $dashboard = 'active';
     include_once '../includes/header.php';
     include_once '../includes/sidebar.php';
+    require_once '../includes/headerMain.php';
     require_once '../database/categories.php';
     require_once '../database/items.php';
     
     require_once '../classes/category.class.php';
     require_once '../classes/item.class.php';
-    
+
+    if (!isset($_SESSION['logged-in'])){
+        header('location: ../login/login.php');
+    }else{
+        if($_SESSION['logged-in']['type'] == 'Cashier'){
+            header('location: ../items/items.php');
+        }
+    }
 ?> 
-    <div class="main flex flex-direction-column">  
-        <div class="header-title flex flex-end">
-            <div class="header-container flex flex-justify-between flex-align-center dark-light">
-                <i class='bx bxs-user-circle icon'></i>
-                <div class="user-name header-text ">Jhon Laden B. Adjaluddin</div>
-            </div>
-        </div>
+    
 
         <div class="body-main">
             <div class="body-header mb-50 brand light-pink">Welcome back <span class = "dirty-white2 brand">Admin</span></div>

@@ -4,6 +4,8 @@
     $items = 'active';
     include_once '../includes/header.php';
     include_once '../includes/sidebar.php';
+    require_once '../includes/headerMain.php';
+
     require_once '../database/categories.php';
     require_once '../database/items.php';
     
@@ -20,19 +22,7 @@
         }
     }
 ?> 
-    <div class="main flex-direction-column">
-        <!-- header -->
-        <div class="header-title flex flex-end">
-            <div class="header-container flex flex-justify-between flex-align-center dark-light">
-                <i class='bx bxs-user-circle icon'></i>
-                <div class="user-name header-text ">Jhon Laden B. Adjaluddin</div>
-            </div>
-        </div>
-
-        
-
-
-
+    
         <!-- table -->
         <div class="table-container fluid flex flex-justify-center">
                 <!-- button -->
@@ -105,17 +95,11 @@
                     ?>
                     </tr>
                 </tbody>
-
-
-                
-                
-           
                 </table>
-            </div>
-        
-
-
+        </div>
     </div>
+        
+        
 
 </body>
 </html>

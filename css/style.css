@@ -95,7 +95,7 @@ body{
     border: none;
     border-bottom: 1px solid #a5a9ac;
     background-color: transparent;
-    color: var(--text-color);
+    color: var(--dirty-white-2);
     outline: none;
 }
 
@@ -194,7 +194,7 @@ input:-webkit-autofill:active {
 }
 
 .main .header-title .header-container{
-    width: 18%;
+    width: fit-content;
 }
 
 .dark-light{
