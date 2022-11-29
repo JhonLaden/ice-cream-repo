@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2022 at 11:04 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Nov 29, 2022 at 03:44 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -136,7 +136,31 @@ INSERT INTO `items` (`id`, `name`, `quantity`, `price`, `category`, `created_at`
 (64, 'Chunk Cookie', 0, 40, 8, '2022-11-26 04:46:56', '2022-11-28 10:09:16', 0),
 (65, 'Pistachio', 0, 45, 8, '2022-11-26 04:48:38', '2022-11-28 10:09:16', 0),
 (66, 'Panna Cotta', 0, 20, 8, '2022-11-26 04:48:38', '2022-11-28 10:09:16', 0),
-(75, 'Banana Split', 0, 50, 3, '2022-11-28 10:24:22', '2022-11-28 10:45:57', 0);
+(75, 'Banana Split', 0, 50, 3, '2022-11-28 10:24:22', '2022-11-28 10:45:57', 0),
+(76, 'dragon', 0, 80, 1, '2022-11-29 02:37:04', '2022-11-29 02:37:04', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchased_history`
+--
+
+CREATE TABLE `purchased_history` (
+  `id` int(11) NOT NULL,
+  `item_quantity` int(11) NOT NULL,
+  `grand_total` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `purchased_history`
+--
+
+INSERT INTO `purchased_history` (`id`, `item_quantity`, `grand_total`, `created_at`, `updated_at`) VALUES
+(5, 2, 54, '2022-11-29 02:31:51', '2022-11-29 02:31:51'),
+(6, 3, 86, '2022-11-29 02:32:37', '2022-11-29 02:32:37'),
+(7, 2, 36, '2022-11-29 02:34:40', '2022-11-29 02:34:40');
 
 -- --------------------------------------------------------
 
@@ -162,8 +186,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `firstname`, `lastname`, `username`, `password`, `type`, `created_at`, `updated_at`, `email`, `isDelete`) VALUES
-(1, 'Jhon Laden', 'Adjaluddin', 'jhon', 'jhon', 'Admin', '2022-11-28 13:22:30', '2022-11-28 14:59:27', 'jhonladen@wmsu.com', 0),
-(2, 'Zcsalweemnhar', 'Bandahala', 'zach', 'zach', 'Cashier', '2022-11-28 14:37:46', '2022-11-28 14:37:46', 'zach@wmsu.com', 0),
+(1, 'Jhon Laden', 'Adjaluddin', 'jhon', 'jhon', 'Admin', '2022-11-28 13:22:30', '2022-11-28 23:13:11', 'jhon@wmsu.edu.ph', 0),
+(2, 'Zcsalweemnhar', 'Bandahala', 'zach', 'zach', 'Cashier', '2022-11-28 14:37:46', '2022-11-29 02:33:59', 'zach@wmsu.edu.ph', 0),
 (6, 'jhon', 'adjaluddin', 'jaydee', 'jaydee', 'jaydee', '2022-11-28 17:39:28', '2022-11-28 17:54:37', 'bg201802674@wmsu.edu.ph', 1),
 (7, 'jche', 'mancao', 'che', 'che', 'Admin', '2022-11-28 18:05:14', '2022-11-28 18:05:48', 'bg201802674@wmsu.edu.ph', 1);
 
@@ -185,6 +209,12 @@ ALTER TABLE `items`
   ADD KEY `category FK` (`category`);
 
 --
+-- Indexes for table `purchased_history`
+--
+ALTER TABLE `purchased_history`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -204,7 +234,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
+--
+-- AUTO_INCREMENT for table `purchased_history`
+--
+ALTER TABLE `purchased_history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
