@@ -10,6 +10,11 @@
     require_once '../classes/category.class.php';
     require_once '../classes/item.class.php';
     
+    $item = new Item();
+    if(isset($_GET['id'])){
+        $item->delete_item($_GET['id']);
+        header('location: items.php');
+    }
 ?> 
     <div class="main flex-direction-column">
         <!-- header -->
@@ -19,10 +24,6 @@
                 <div class="user-name header-text ">Jhon Laden B. Adjaluddin</div>
             </div>
         </div>
-
-        
-
-
 
         <!-- table -->
         <div class="table-container fluid flex flex-justify-center">
@@ -68,7 +69,7 @@
                                     <td><?php echo $value['category']?></td>
                                     <td><?php echo $value['created_at']?></td>
                                     <td><?php echo $value['updated_at']?></td>
-                                    <td class = "action" > <a class = "grass" href = "editItem?id=<?php $value['id'] ?>">Edit</a> <a href = "#" class = "danger" > Delete<a></td>
+                                    <td class = "action" > <a class = "grass" href = "editItem.php?id=<?php echo $value['id'] ?>">Edit</a> <a href = "items.php?id=<?php echo $value['id'] ?>" class = "danger" > Delete<a></td>
                                 </tr>
                         <?php
                             }
@@ -83,8 +84,8 @@
                             <td><?php echo $value['created_at']?></td>
                             <td><?php echo $value['updated_at']?></td>
                             <td class = "action" > 
-                                <a class = "grass" href = "editItem.php?id= <?php $value['id']?>">Edit</a> 
-                                <a class = "danger" href = "#"  > Delete<a>
+                                <a class = "grass" href = "editItem.php?id= <?php echo $value['id']?>">Edit</a> 
+                                <a class = "danger" href = "items.php?id=<?php echo $value['id'] ?>" > Delete<a>
                              </td>
 
                         </tr>

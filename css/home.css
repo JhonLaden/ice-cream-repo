@@ -181,6 +181,7 @@ a{
 .menu .menu-body .sorting-cards .card .card-body{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .menu .menu-body .sorting-cards .card .card-header i{
@@ -219,6 +220,7 @@ a{
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
+    overflow-x: scroll;
 }
 
 .menu .menu-body .menu-items .card .background-card{

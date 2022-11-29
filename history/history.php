@@ -31,11 +31,8 @@
                 <tr class = "brand bolder " >
                     <th>#</th>
                     <th>Item Quantity</th>
-                    <th>Grand Total</th>
-                    <th>Created at</th>
-                    <th>Updated at</th>
-
-
+                    <th>Total Earnings</th>
+                    <th>Date</th>
                 </tr>
                 <?php
                     $counter = 1;
@@ -46,7 +43,6 @@
                         <td><?php echo $value['item_quantity']?></td>
                         <td><?php echo $value['grand_total']?></td>
                         <td><?php echo $value['created_at']?></td>
-                        <td><?php echo $value['updated_at']?></td>
                         
 
                     </tr>

@@ -30,7 +30,7 @@ class History{
 
 
     function show(){
-        $sql = "SELECT * FROM purchased_history;";
+        $sql = "SELECT * FROM purchased_history ORDER BY updated_at ASC;";
         $query = $this->db->connect()->prepare($sql);
 
         if($query->execute()){
