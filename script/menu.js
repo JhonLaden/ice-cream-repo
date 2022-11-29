@@ -1,24 +1,60 @@
-const itemElement = document.getElementsByClassName('.item');
+const itemElement = document.getElementsByClassName('item');
 const plus = document.getElementsByClassName('plus');
 const minus = document.getElementsByClassName('minus');
+const placeOrder = document.getElementsByClassName('place-order')[0];
+const clearEl = document.getElementsByClassName('clear-button')[0];
+
+
+
+
 var cardList = [];
 var isRefresh_var = true;
 
 const wantList1 = document.getElementsByClassName('want-list')[0];
 const list1 = wantList1.getElementsByClassName('list-item');
 
+function clear_func(){
+    const items = document.getElementsByClassName('item');
+    window.localStorage.clear();
+    for (var i = 0; i < 8; i++){
+        var itemCount = items[i].getElementsByClassName('item-count')[0];
+        itemCount.textContent = 0;
+        items[i].classList.remove('active');
+    }
+    cardList = [];
+    doDisplay(false);
+    render();
+}
+
+clearEl.addEventListener('dblclick', clear_func);
+
+placeOrder.addEventListener('click', function(){
+    var itemNames = [];
+    var itemQuantities = [];
+    var itemPrices = [];
+    var subTotal, discountTotal, grandTotal;
+
+    for(var i = 0; i < cardList.length; i++){
+        itemNames.push(cardList[i].getElementsByClassName('item-name')[0].textContent);
+        itemQuantities.push(cardList[i].getElementsByClassName('quantity')[0].textContent);
+        itemPrices.push(cardList[i].getElementsByClassName('price')[0].textContent);
+        subTotal = document.querySelectorAll('.subtax .sub .value')[0].textContent;
+        discountTotal = document.querySelectorAll('.subtax .disc .value')[0].textContent;
+        grandTotal = document.querySelectorAll('.grand-total .value')[0].textContent;
+    }
+    var newhref = "";
+    var itemTotal = 0;
+    
+    for (var i = 0; i < itemNames.length; i++){
+        itemTotal = (+itemTotal) + parseInt(itemQuantities);
+    }
+    grandTotal = grandTotal.replace('₱ ', "");
+    newhref = "http://localhost/ice-cream-repo/history/history.php?" + "itemTotal="+itemTotal+"&"+"grandTotal="+grandTotal;
+    clear_func();
+    placeOrder.setAttribute('href', newhref);
+
+});
 doDisplay(false);
-
-// function test(){
-//     window.localStorage.setItem('item', itemElement.outerHTML);
-//     var el = window.localStorage.getItem('item');
-//     var doc = new DOMParser().parseFromString(el, "text/xml");
-//     console.log(doc.getElementsByClassName('background-card')[0]);
-// }
-
-// test();
-
-// window.localStorage.clear();
 
 if(window.localStorage.getItem('cardStorage')){
     extract();
@@ -363,6 +399,7 @@ function doDisplay(bool){
         dialog.classList.add('d-block');
         dialog.classList.remove('d-none');
         dummyEl.classList.add('d-block');
+        clearEl.classList.add('d-none');
         
         // centering the dialog
         total.classList.add('d-flex');
@@ -376,7 +413,7 @@ function doDisplay(bool){
         dialog.classList.remove('d-block');
         dummyEl.classList.remove('d-block');
         dummyEl.classList.add('d-none');
-
+        clearEl.classList.remove('d-none');
 
 
         // centering the dialog

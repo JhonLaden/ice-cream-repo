@@ -27,7 +27,7 @@
                     </li>
                     
                     <li class = "navbar-item">
-                        <a href="#" class="navbar-link">Purchased History</a>
+                        <a href="../history/history.php" class="navbar-link <?php echo $history; ?>">Purchased History</a>
                     </li>
                     <li class = "navbar-item logout">
                         <a href="../login/logout.php" class="navbar-link">Logout</a>

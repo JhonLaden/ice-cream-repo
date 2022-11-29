@@ -89,29 +89,6 @@
                 <?php 
                 }
                 ?>
-            <!-- <div class="card">
-                <div class="card-header text">
-                    <span> Orders 
-                    <i class='bx bx-right-arrow-alt '></i> Kitchen 
-                    <span>
-                </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        <span class = "brand">Fish and chips</span>
-                        <span class = "value">₱10.00</span>
-                    </div>
-                    
-                </div>
-                <div class="card-footer">
-                    <span class = "minus-plus">
-                        <i class='bx bx-minus minus-icon icon ' id = "minus"></i>
-                        <span class = "item-count">0</span>
-                        <i class='bx bx-plus icon ' id = "plus"></i>
-                    </span>
-                </div>
-            </div>
-            -->
-
         
     </section>
     <section class = "sidebar-right">
@@ -129,21 +106,7 @@
 
             <div class="list-container">
                 <ul class="want-list">
-                    <!-- <li hidden class="item list-item">
-                        <span class="x-mark">
-                            <i class='bx bxs-trash icon'></i>
-                        </span>
-                        <div class="want-item">
-                            <div class="details">
-                                <div class="counter-name">
-                                    <span class="item-counter">1</span>
-                                    <span class="item-name">Cookie</span>
-                                    <span class="quantity">x2</span>
-                                </div>
-                                <div class="price">₱25.00</div>
-                             </div>
-                        </div>
-                    </li> -->  
+ 
             </div>
 
             <div class="total-container">
@@ -165,9 +128,11 @@
                             <span class="value">₱ 0.00</span>
                         </div>
                     </div>
-                    <div class="place-order">
+                    <button class = "clear-button"> Clear </button>
+                    <a class="place-order" href = "#">
                         <button><span>Place Order</span></button>
-                    </div>
+                    </a>
+                    
                     <span class="dialog">
                         <p class="text">Select an item to add</p>
                     </span>

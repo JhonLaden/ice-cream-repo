@@ -56,6 +56,27 @@ class Item{
         return false;
     }
 
+    function get_item_count(){
+        $sql = "SELECT COUNT(id) as user_count FROM items WHERE isDeleted = false;";
+        $query = $this->db->connect()->prepare($sql);
+
+        if($query->execute()){
+            $data = $query->fetch();
+        }
+        return $data;
+    }
+
+    function get_latest_item(){
+        $sql = "SELECT DATE(MAX(updated_at)) as latest_update FROM items WHERE isDeleted = false;";
+        $query = $this->db->connect()->prepare($sql);
+
+        if($query->execute()){
+            $data = $query->fetch();
+        }
+        return $data;
+    }
+
+
     function show(){
         $sql = "SELECT * FROM items WHERE isDeleted = false ORDER BY name ; ";
         $query = $this->db->connect()->prepare($sql);

@@ -11,12 +11,33 @@ function validate_first_name($POST){
     }
     return true;
 }
+function validate_first_name2($POST){
+    if(!isset($POST['firstname'])){
+        return false;
+    }else if(strlen(trim($POST['firstname']))<1){
+        return false;
+
+    }else if($POST['firstname'][0] == " "){
+        return false;
+    }
+    return true;
+}
 function validate_last_name($POST){
     if(!isset($POST['ln'])){
         return false;
     }else if(strlen(trim($POST['ln']))<1){
         return false;
     }else if($POST['ln'][0] == " "){
+        return false;
+    }
+    return true;
+}
+function validate_last_name2($POST){
+    if(!isset($POST['lastname'])){
+        return false;
+    }else if(strlen(trim($POST['lastname']))<1){
+        return false;
+    }else if($POST['lastname'][0] == " "){
         return false;
     }
     return true;
@@ -119,8 +140,8 @@ function validate_add_item($POST){
      }
     return true;
 }
-function validate_add_user($POST){
-    if(!validate_first_name($POST)  || !validate_last_name($POST) || !validate_username($POST) || !validate_password($POST) || !validate_email($POST) ){
+function validate_add_user2($POST){
+    if(!validate_first_name2($POST)  || !validate_last_name2($POST) || !validate_username($POST) || !validate_password($POST) || !validate_email($POST)|| !validate_type($POST) ){
         return false;
      }
     return true;
