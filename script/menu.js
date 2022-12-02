@@ -1,89 +1,69 @@
-const itemElement = document.getElementsByClassName('item');
 const plus = document.getElementsByClassName('plus');
 const minus = document.getElementsByClassName('minus');
 const placeOrder = document.getElementsByClassName('place-order')[0];
 const clearEl = document.getElementsByClassName('clear-button')[0];
 
-
-
-
 var cardList = [];
-var isRefresh_var = true;
-
 const wantList1 = document.getElementsByClassName('want-list')[0];
 const list1 = wantList1.getElementsByClassName('list-item');
 
-function clear_func(){
-    const items = document.getElementsByClassName('item');
-    window.localStorage.clear();
-    for (var i = 0; i < 8; i++){
-        var itemCount = items[i].getElementsByClassName('item-count')[0];
-        itemCount.textContent = 0;
-        items[i].classList.remove('active');
-    }
-    cardList = [];
-    doDisplay(false);
-    render();
-}
-
-clearEl.addEventListener('dblclick', clear_func);
-
-placeOrder.addEventListener('click', function(){
-    var itemNames = [];
-    var itemQuantities = [];
-    var itemPrices = [];
-    var subTotal, discountTotal, grandTotal;
-
-    for(var i = 0; i < cardList.length; i++){
-        itemNames.push(cardList[i].getElementsByClassName('item-name')[0].textContent);
-        itemQuantities.push(cardList[i].getElementsByClassName('quantity')[0].textContent);
-        itemPrices.push(cardList[i].getElementsByClassName('price')[0].textContent);
-        subTotal = document.querySelectorAll('.subtax .sub .value')[0].textContent;
-        discountTotal = document.querySelectorAll('.subtax .disc .value')[0].textContent;
-        grandTotal = document.querySelectorAll('.grand-total .value')[0].textContent;
-    }
-    var newhref = "";
-    var itemTotal = 0;
-    
-    for (var i = 0; i < itemNames.length; i++){
-        itemTotal = (+itemTotal) + parseInt(itemQuantities);
-    }
-    grandTotal = grandTotal.replace('₱ ', "");
-    newhref = "http://localhost/ice-cream-repo/history/history.php?" + "itemTotal="+itemTotal+"&"+"grandTotal="+grandTotal;
-    clear_func();
-    placeOrder.setAttribute('href', newhref);
-
-});
-doDisplay(false);
-
-if(window.localStorage.getItem('cardStorage')){
+if(window.localStorage.getItem('localCardList')){
     extract();
     render();   
 }else{
     console.log('empty');
-}
-
-function isRefresh(){
-    return isRefresh_var;
+    doDisplay(false);
 }
 
 function store(){
-    var stringList = [];
-    for (var i = 0; i < cardList.length; i++){
-        stringList.push(cardList[i].outerHTML);
+    var localCardList = [];
+
+    // iterate through the card list
+    for(var i = 0 ; i < cardList.length; i++){
+
+        // take the content of the card list and put it on the new card
+        var cardListName = cardList[i].getElementsByClassName('item-name')[0].textContent;
+        var cardListQuantity = cardList[i].getElementsByClassName('quantity')[0].textContent
+        var cardListPrice = cardList[i].getElementsByClassName('price')[0].textContent;
+
+        localCard = [];
+        // putting it on the new card
+        localCard.push(cardListName);
+        localCard.push(cardListQuantity);
+        localCard.push(cardListPrice);
+        
+        // push it to the list
+        localCardList.push(localCard);
     }
-    window.localStorage.setItem('cardStorage', JSON.stringify(stringList));
+    window.localStorage.setItem('localCardList', JSON.stringify(localCardList));
 }
 
 function extract(){
-    var stringList = [];
-    stringList = JSON.parse(window.localStorage.getItem('cardStorage'));
-    for (var i = 0; i < stringList.length; i++){
-        var doc = new DOMParser().parseFromString(stringList[i], "text/xml");
-        cardList.push(doc.firstChild);
+    var localCardList = [];
+
+    localCardList = JSON.parse(window.localStorage.getItem('localCardList'));
+    for (var i = 0; i < localCardList.length; i++){
+        newCard = createCard();
+
+        // take the value of array to text content of the new card
+        newCard.getElementsByClassName('item-name')[0].textContent = localCardList[i][0];
+        newCard.getElementsByClassName('quantity')[0].textContent = localCardList[i][1];
+        newCard.getElementsByClassName('price')[0].textContent = localCardList[i][2];
+
         
+        var xButton = newCard.getElementsByClassName('x-mark')[0];
+        xButton.addEventListener('click',function(){
+            newCard.classList.add('fade-out');
+            setTimeout(function(){
+                cardList = removeItemOnce(cardList, newCard);
+                render();
+            }, 700);
+        });
+
+        newCard.classList.remove('animated-entrance');
+
+        cardList.push(newCard);
     }
-    render();
 }
 
 
@@ -205,8 +185,8 @@ function addToList( card ){
     var xButton = newCard.getElementsByClassName('x-mark')[0];
     xButton.addEventListener('click',function(){
         newCard.classList.add('fade-out');
-        card.getElementsByClassName('item-count')[0].textContent = 0;
-        card.classList.remove('active');
+        // card.getElementsByClassName('item-count')[0].textContent = 0;
+        // card.classList.remove('active');
         setTimeout(function(){
             cardList = removeItemOnce(cardList, newCard);
             render();
@@ -423,4 +403,50 @@ function doDisplay(bool){
 
         dialog.classList.add('d-none');
     }
+}
+
+function clear_func(){
+    const items = document.getElementsByClassName('item');
+    window.localStorage.clear();
+    for (var i = 0; i < 8; i++){
+        var itemCount = items[i].getElementsByClassName('item-count')[0];
+        itemCount.textContent = 0;
+        items[i].classList.remove('active');
+    }
+    cardList = [];
+    doDisplay(false);
+    render();
+}
+
+clearEl.addEventListener('dblclick', clear_func);
+
+placeOrder.addEventListener('click', function(){
+    var itemNames = [];
+    var itemQuantities = [];
+    var itemPrices = [];
+    var subTotal, discountTotal, grandTotal;
+
+    for(var i = 0; i < cardList.length; i++){
+        itemNames.push(cardList[i].getElementsByClassName('item-name')[0].textContent);
+        itemQuantities.push(cardList[i].getElementsByClassName('quantity')[0].textContent);
+        itemPrices.push(cardList[i].getElementsByClassName('price')[0].textContent);
+        subTotal = document.querySelectorAll('.subtax .sub .value')[0].textContent;
+        discountTotal = document.querySelectorAll('.subtax .disc .value')[0].textContent;
+        grandTotal = document.querySelectorAll('.grand-total .value')[0].textContent;
+    }
+    var newhref = "";
+    var itemTotal = 0;
+    
+    for (var i = 0; i < itemNames.length; i++){
+        itemTotal = (+itemTotal) + parseInt(itemQuantities);
+    }
+    grandTotal = grandTotal.replace('₱ ', "");
+    newhref = "http://localhost/ice-cream-repo/history/history.php?" + "itemTotal="+itemTotal+"&"+"grandTotal="+grandTotal;
+    clear_func();
+    placeOrder.setAttribute('href', newhref);
+
+});
+
+function sameName(itemName){
+    
 }
