@@ -4,6 +4,8 @@
     $items = 'active';
     include_once '../includes/header.php';
     include_once '../includes/sidebar.php';
+    require_once '../includes/headerMain.php';
+
     require_once '../database/categories.php';
     require_once '../database/items.php';
     
@@ -16,14 +18,6 @@
         header('location: items.php');
     }
 ?> 
-    <div class="main flex-direction-column">
-        <!-- header -->
-        <div class="header-title flex flex-end">
-            <div class="header-container flex flex-justify-between flex-align-center dark-light">
-                <i class='bx bxs-user-circle icon'></i>
-                <div class="user-name header-text ">Jhon Laden B. Adjaluddin</div>
-            </div>
-        </div>
 
         <!-- table -->
         <div class="table-container fluid flex flex-justify-center">
@@ -53,7 +47,12 @@
                         <th>Category</th>
                         <th>Created on</th>
                         <th>Updated on</th>
-                        <th>Action</th>
+                        <?php
+                            if(isset($_SESSION['logged-in']) && $_SESSION['logged-in']['type'] == 'Admin'){ ?>
+                            <th>Action</th>
+                        <?php }
+                        ?>
+                        
 
                     </tr>
                     <?php
@@ -69,7 +68,16 @@
                                     <td><?php echo $value['category']?></td>
                                     <td><?php echo $value['created_at']?></td>
                                     <td><?php echo $value['updated_at']?></td>
-                                    <td class = "action" > <a class = "grass" href = "editItem.php?id=<?php echo $value['id'] ?>">Edit</a> <a href = "items.php?id=<?php echo $value['id'] ?>" class = "danger" > Delete<a></td>
+                                    <?php
+                                    if(isset($_SESSION['logged-in']) && $_SESSION['logged-in']['type'] == 'Admin'){ 
+                                    ?>
+                                        <td class = "action" > 
+                                            <a class = "grass" href = "editItem.php?id=<?php echo $value['id'] ?>">Edit</a> 
+                                            <a href = "items.php?id=<?php echo $value['id'] ?>" class = "danger" > Delete<a>
+                                        </td>
+                                    <?php 
+                                    }
+                                    ?>
                                 </tr>
                         <?php
                             }

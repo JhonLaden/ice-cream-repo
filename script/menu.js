@@ -10,6 +10,7 @@ const list1 = wantList1.getElementsByClassName('list-item');
 if(window.localStorage.getItem('localCardList')){
     extract();
     render();   
+    updateMenuItem();
 }else{
     console.log('empty');
     doDisplay(false);
@@ -50,8 +51,8 @@ function extract(){
         newCard.getElementsByClassName('quantity')[0].textContent = localCardList[i][1];
         newCard.getElementsByClassName('price')[0].textContent = localCardList[i][2];
 
-        
         var xButton = newCard.getElementsByClassName('x-mark')[0];
+
         xButton.addEventListener('click',function(){
             newCard.classList.add('fade-out');
             setTimeout(function(){
@@ -65,9 +66,6 @@ function extract(){
         cardList.push(newCard);
     }
 }
-
-
-
 
 for (var i = 0; i < plus.length; i++){
     var plusbtn = plus[i];
@@ -299,9 +297,11 @@ function render(){
             wantList.appendChild(cardList[i]);
 
         }
+        //check menu if active
     }else{
         doDisplay(false);
     }
+    updateMenuItem();
     store();
 
 }
@@ -406,7 +406,7 @@ function doDisplay(bool){
 }
 
 function clear_func(){
-    const items = document.getElementsByClassName('item');
+    const items = document.getElementsByClassName('menu-item');
     window.localStorage.clear();
     for (var i = 0; i < 8; i++){
         var itemCount = items[i].getElementsByClassName('item-count')[0];
@@ -447,6 +447,25 @@ placeOrder.addEventListener('click', function(){
 
 });
 
-function sameName(itemName){
-    
+function updateMenuItem(){
+    var menuItem = document.getElementsByClassName('menu-item');
+    var listItem = document.getElementsByClassName('list-item');
+    for(var i = 0; i < menuItem.length; i++){
+        var isActive = false;
+        for(var j = 0; j < listItem.length; j++){
+            var menuItemName = menuItem[i].getElementsByClassName('brand')[0].textContent;
+            var listItemName = listItem[j].getElementsByClassName('item-name')[0].textContent;
+            if(menuItemName == listItemName){
+                isActive = true;
+                var menuItemqQuantityEl = menuItem[i].getElementsByClassName('item-count')[0];
+                var listItemQuantityEl = listItem[j].getElementsByClassName('quantity')[0];
+                menuItemqQuantityEl.textContent = listItemQuantityEl.textContent;
+                menuItem[i].classList.add('active');
+            }
+        }
+        if(!isActive){
+            menuItem[i].classList.remove('active');
+            menuItem[i].getElementsByClassName('item-count')[0].textContent = 0;
+        }
+    }
 }

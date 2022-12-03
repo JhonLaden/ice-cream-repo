@@ -53,7 +53,7 @@
                 }
                 foreach($item->selectId($id) as $value){
             ?>
-                <div class="card item
+                <div class="card menu-item
             <?php
                 if($value['quantity'] > 0){
             ?>
